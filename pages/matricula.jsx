@@ -15,6 +15,7 @@ export default function cadastro() {
             idade: event.target.idade.value,
             curso: event.target.curso.value,
             responsavel: event.target.responsavel.value,
+            situacao: 'pendente'
 
         }
     
@@ -36,12 +37,14 @@ export default function cadastro() {
           body: JSONdata,
         }
         console.log(JSONdata)
-        // // Send the form data to our forms API on Vercel and get a response.
-        // const response = await fetch(endpoint, options)
+        // Send the form data to our forms API on Vercel and get a response.
+        const response = await fetch(endpoint, options)
+        console.log(response)
     
-        // // Get the response data from server as JSON.
-        // // If server returns the name submitted, that means the form works.
-        // const result = await response.json()
+        // Get the response data from server as JSON.
+        // If server returns the name submitted, that means the form works.
+        const result = await response.json()
+        console.log(result)
       }
     return (
         <div className="w-screen h-screen bg-slate-900">
@@ -49,7 +52,7 @@ export default function cadastro() {
                 <form
                     onSubmit={handleSubmit}
                     className="grid grid-rows-10 grid-cols-2 w-11/12 bg-slate-800 m-auto self-center h-3/4 rounded-md items-center sm:w-1/2">
-                        <Image src={logo} alt="Logo" className="justify-self-center col-span-2"/>
+                        <Image priority src={logo} alt="Logo" className="justify-self-center col-span-2"/>
                     <div className="flex col-span-2">
                         <label htmlFor="nome" className="text-white mx-4">Nome: </label>
                         <input required type="text" name="nome" id="nome" placeholder="* Nome Completo" className="caret-white text-white bg-slate-900 p-2 h-7 w-full mr-4 rounded"/>
@@ -85,7 +88,7 @@ export default function cadastro() {
                     
                     <div className="flex col-span-2 items-baseline justify-center">
                         <input required type="checkbox" name="termos" id="termos" />
-                        <label htmlFor="termos" className="text-center text-white w-11/12"><a href="javascript:void(0)"> Li e Concordo</a> com os termos de uso, ciente de todos os <a href="javascript:void(0)">termos de politica e privacidade.</a></label>
+                        <label htmlFor="termos" className="text-center text-white w-11/12"><a href="#"> Li e Concordo</a> com os termos de uso, ciente de todos os <a href="#">termos de politica e privacidade.</a></label>
                     </div>
                     <div className="col-span-2 flex justify-end">
                         <button type="submit" className="bg-gray-600 p-2 rounded-lg text-white mr-4 hover:bg-slate-700 active:bg-slate-700">Matricular</button>
