@@ -21,10 +21,10 @@ export const authOptions = {
             clientSecret: 'f3343895ed860be240aafe7abca1f41ced137e50',
         }),
     ],
-    //   pages: {
-    //     signIn: '/auth/signin',
-    //     signOut: '/auth/signout',
-    //   }
+      pages: {
+        signIn: '/login',
+        // signOut: '/auth/signout',
+      }
 }
 
 export default NextAuth(authOptions)

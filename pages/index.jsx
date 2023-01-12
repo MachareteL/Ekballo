@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <>
     <BotaoLogin />
-    <Link href="/matricula">Matricular-se</Link>
+    <Link href="/matricula">Matriculas</Link>
     </>
   )
 }

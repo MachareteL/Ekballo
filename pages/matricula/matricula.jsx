@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useRouter } from "next/router"
 import { useEffect } from "react"
 import { useSession } from "next-auth/react";
-
+import swal from 'sweetalert';
 
 
 export default function cadastro() {
@@ -49,26 +49,31 @@ export default function cadastro() {
         // If server returns the name submitted, that means the form works.
         const result = await response.json()
         console.log(result)
+        event.target.nome.value = ""
+        event.target.telefone.value = ""
+        event.target.email.value = ""
+        event.target.endereco.value = ""
+        event.target.idade.value = ""
+        event.target.curso.value = ""
+        event.target.responsavel.value = ""
+        swal("Hello world!");
     }
-    function handleButton(){
+    function handleButton() {
         route.push('/')
     }
 
     const route = useRouter()
-    const session = useSession()
-    
-    useEffect(() => {
-        const handleRouteChange = (url, { shallow }) => {
-            if(session.status === "unauthenticated" && '/matricula' != route.asPath){
-                route.push('/login', undefined, { permanent: false })
-            }
-          }
-        route.events.on("routeChangeStart", handleRouteChange)
+    const { data, status } = useSession({
+        required: true,
+        onUnauthenticated() {
+            route.push('/login')
+        },
     })
+    console.log(data)
+
 
     return (
         <div className="w-screen h-screen bg-slate-900">
-                <button onClick={handleButton} className='text-white'>Voltar</button>
             <div className="grid bg-slate-900 container m-auto min-h-screen">
                 <form
                     onSubmit={handleSubmit}
