@@ -1,10 +1,10 @@
 import logo from "../public/favicon.png";
 import Image from "next/image";
-import { unstable_getServerSession } from "next-auth/next"
-import { authOptions } from "./api/auth/[...nextauth]"
-import { useSession } from "next-auth/react"
 import { useRouter } from "next/router"
 import { useEffect } from "react"
+import { useSession } from "next-auth/react";
+
+
 
 export default function cadastro() {
     const handleSubmit = async (event) => {
@@ -21,7 +21,6 @@ export default function cadastro() {
             curso: event.target.curso.value,
             responsavel: event.target.responsavel.value,
             situacao: 'pendente'
-
         }
 
         // Send the data to the server in JSON format.
@@ -51,18 +50,25 @@ export default function cadastro() {
         const result = await response.json()
         console.log(result)
     }
+    function handleButton(){
+        route.push('/')
+    }
+
     const route = useRouter()
-    const { session } = useSession()
+    const session = useSession()
     
     useEffect(() => {
-        if (!session) {
-            route.push('/login')
-        }
-
+        const handleRouteChange = (url, { shallow }) => {
+            if(session.status === "unauthenticated" && '/matricula' != route.asPath){
+                route.push('/login', undefined, { permanent: false })
+            }
+          }
+        route.events.on("routeChangeStart", handleRouteChange)
     })
 
     return (
         <div className="w-screen h-screen bg-slate-900">
+                <button onClick={handleButton} className='text-white'>Voltar</button>
             <div className="grid bg-slate-900 container m-auto min-h-screen">
                 <form
                     onSubmit={handleSubmit}
@@ -112,16 +118,4 @@ export default function cadastro() {
             </div>
         </div>
     );
-}
-
-export async function getServerSideProps(context) {
-    return {
-        props: {
-            session: await unstable_getServerSession(
-                context.req,
-                context.res,
-                authOptions
-            ),
-        },
-    }
 }

@@ -1,7 +1,7 @@
 const { MongoClient, ServerApiVersion } = require('mongodb');
 
 export default async function handler(req, res) {
-  const uri = "mongodb+srv://@items.luxvvhh.mongodb.net/?retryWrites=true&w=majority";
+  const uri = "mongodb+srv://admin:admin@items.luxvvhh.mongodb.net/?retryWrites=true&w=majority";
   const client = new MongoClient(uri);
 
   if (req.method === 'POST') {
