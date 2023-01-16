@@ -1,6 +1,7 @@
 import { signIn } from "next-auth/react";
 import Image from "next/image";
-import logo from "../public/favicon.png";
+import logo from "../../public/favicon.png";
+
 
 
 export default function login() {

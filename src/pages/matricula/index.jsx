@@ -1,12 +1,19 @@
-import logo from "../public/favicon.png";
+import logo from "../../../public/favicon.png";
 import Image from "next/image";
 import { useRouter } from "next/router"
-import { useEffect } from "react"
 import { useSession } from "next-auth/react";
 import swal from 'sweetalert';
 
 
 export default function cadastro() {
+    const route = useRouter()
+    const { data, status } = useSession({
+        required: true,
+        onUnauthenticated() {
+            route.push('/login')
+        },
+    })
+    const mail = data?.user?.email
     const handleSubmit = async (event) => {
         // Stop the form from submitting and refreshing the page.
         event.preventDefault()
@@ -15,11 +22,12 @@ export default function cadastro() {
         const data = {
             nome: event.target.nome.value,
             telefone: event.target.telefone.value,
-            email: event.target.email.value,
+            email: mail,
             endereco: event.target.endereco.value,
             idade: event.target.idade.value,
             curso: event.target.curso.value,
             responsavel: event.target.responsavel.value,
+
             situacao: 'pendente'
         }
 
@@ -40,7 +48,7 @@ export default function cadastro() {
             // Body of the request is the JSON data we created above.
             body: JSONdata,
         }
-        console.log(JSONdata)
+        // console.log(JSONdata)
         // Send the form data to our forms API on Vercel and get a response.
         const response = await fetch(endpoint, options)
         console.log(response)
@@ -56,20 +64,11 @@ export default function cadastro() {
         event.target.idade.value = ""
         event.target.curso.value = ""
         event.target.responsavel.value = ""
-        swal("Hello world!");
-    }
-    function handleButton() {
-        route.push('/')
+        response.ok? swal(result.result) : swal(result.error)
     }
 
-    const route = useRouter()
-    const { data, status } = useSession({
-        required: true,
-        onUnauthenticated() {
-            route.push('/login')
-        },
-    })
-    console.log(data)
+
+    
 
 
     return (
@@ -77,7 +76,7 @@ export default function cadastro() {
             <div className="grid bg-slate-900 container m-auto min-h-screen">
                 <form
                     onSubmit={handleSubmit}
-                    className="grid grid-rows-10 grid-cols-2 w-11/12 bg-slate-800 m-auto self-center h-3/4 rounded-md items-center sm:w-1/2">
+                    className="grid  grid-cols-2 w-11/12 bg-slate-800 m-auto self-center h-3/4 rounded-md items-center sm:w-1/2">
                     <Image priority src={logo} alt="Logo" className="justify-self-center col-span-2" />
                     <div className="flex col-span-2">
                         <label htmlFor="nome" className="text-white mx-4">Nome: </label>
@@ -87,10 +86,10 @@ export default function cadastro() {
                         <label htmlFor="telefone" className="text-white mx-4">Telefone: </label>
                         <input required type="tel" name="telefone" id="telefone" placeholder="* (DDD)9 XXXX-XXXX" className="caret-white text-white bg-slate-900 rounded p-2 h-7 w-full mr-4" />
                     </div>
-                    <div className="flex col-span-2">
+                    {/* <div className="flex col-span-2">
                         <label htmlFor="email" className="text-white mx-4">Email: </label>
                         <input type="email" name="email" id="email" placeholder="Email@exemplo.com" className="caret-white text-white bg-slate-900 p-2 h-7 w-full mr-4 rounded" />
-                    </div>
+                    </div> */}
                     <div className="flex col-span-2">
                         <label htmlFor="endereco" className="text-white mx-4">Endereço: </label>
                         <input type="endereco" name="endereco" id="endereco" placeholder="Ex: Bairro Rua Cep" className="caret-white text-white bg-slate-900 p-2 h-7 w-full mr-4 rounded" />
