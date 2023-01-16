@@ -1,10 +1,10 @@
-import BotaoLogin from "../components/BotaoLogin";
-import Link from "next/link";
+import Image from 'next/image'
+import logo from '../../public/favicon.png'
+
 export default function Home() {
   return (
     <>
-    <BotaoLogin />
-    <Link href="/matricula">Matriculas</Link>
+    {/* <Image priority src={logo} alt="Logo" className="invert"/> */}
     </>
   )
 }
