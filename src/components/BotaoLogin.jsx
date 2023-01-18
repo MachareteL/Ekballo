@@ -8,7 +8,7 @@ function classNames(...classes) {
 export default function BotaoLogin() {
   const { data: session } = useSession()
   
-  if (!session) {
+  if (session) {
     return (
       <>
         <Menu as="div" className="relative ml-3">
@@ -18,7 +18,7 @@ export default function BotaoLogin() {
                      
                       <img
                         className="h-8 w-8 rounded-full"
-                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                        src={session.user.image}
                         alt=""
                       />
                     </Menu.Button>
@@ -37,10 +37,10 @@ export default function BotaoLogin() {
                       <Menu.Item>
                         {({ active }) => (
                           <a
-                            href="#"
+                            href="/matricula/estado"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
-                            Your Profile
+                            Suas Matriculas
                           </a>
                         )}
                       </Menu.Item>
@@ -56,7 +56,7 @@ export default function BotaoLogin() {
                       </Menu.Item>
                       <Menu.Item>
                         {({ active }) => (
-                          <button onClick={() => signOut({callbackUrl: '/'})} className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700 ')}> Deslogar </button>
+                          <button onClick={() => signOut({callbackUrl: '/'})} className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700 w-full text-start')}> Deslogar </button>
                         )}
                       </Menu.Item>
                     </Menu.Items>

@@ -16,18 +16,23 @@ import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import BotaoLogin from "./BotaoLogin"
 import logo from "../../public/favicon.png"
 import Image from 'next/image'
-const navigation = [
-  { name: 'Quem somos', href: '#', current: true },
-  { name: 'Team', href: '#', current: false },
-  { name: 'Projects', href: '#', current: false },
-  { name: 'Calendar', href: '#', current: false },
-]
+import { useRouter } from 'next/router'
+
+
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
 export default function NavBar() {
+  const route = useRouter()
+  console.log(route.pathname)
+  const navigation = [
+    { name: 'Quem somos', href: '#', current: (route.pathname == "/"? true : false) },
+    { name: 'Team', href: '/team', current: (route.pathname == "/team"? true : false) },
+    { name: 'Projects', href: '#', current: false },
+    { name: 'Matricula', href: '/matricula', current: (route.pathname == "/matricula"? true : false) },
+  ]
   return (
     <Disclosure as="nav" className="bg-slate-800">
       {({ open }) => (
@@ -49,7 +54,7 @@ export default function NavBar() {
                 </Disclosure.Button>
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-between">
-                <div className="flex flex-shrink-0 items-center">
+                <div onClick={()=>{route.push('/')}} className="flex flex-shrink-0 items-center">
                   <Image
                     className="block h-12 w-auto lg:hidden"
                     src={logo}
@@ -106,7 +111,7 @@ export default function NavBar() {
                     item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                     'block px-3 py-2 rounded-md text-base font-medium'
                   )}
-                  aria-current={item.current ? 'page' : undefined}
+                  
                 >
                   {item.name}
                 </Disclosure.Button>

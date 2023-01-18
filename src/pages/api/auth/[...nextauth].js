@@ -24,7 +24,8 @@ export const authOptions = {
       pages: {
         signIn: '/login',
         // signOut: '/auth/signout',
-      }
+    },
+    secret: '10f0f6dd-3688-4b6c-858b-18bd25e4eeff'
 }
 
 export default NextAuth(authOptions)
