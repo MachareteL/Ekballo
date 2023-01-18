@@ -1,4 +1,4 @@
-import { useSession, signIn, signOut } from "next-auth/react"
+import { useSession, signIn, signOut, getSession } from "next-auth/react"
 import { Menu, Transition, Fragment } from '@headlessui/react'
 
 
@@ -18,7 +18,7 @@ export default function BotaoLogin() {
                      
                       <img
                         className="h-8 w-8 rounded-full"
-                        src={session.user.image}
+                        src={(session.user.image).toString()}
                         alt=""
                       />
                     </Menu.Button>
@@ -74,4 +74,12 @@ export default function BotaoLogin() {
 
     </>
   )
+}
+
+export async function getServerSideProps(context){
+  const session = await getSession(context)
+  
+  return{
+    props: teste
+  }
 }

@@ -1,4 +1,8 @@
 import { getSession } from "next-auth/react"
+import { useRouter } from "next/router"
+import React from "react";
+import swal from "sweetalert"
+
 
 export async function getServerSideProps(context) {
   const session = await getSession(context)
@@ -12,7 +16,6 @@ export async function getServerSideProps(context) {
       },
     }
   }
-  const email = await fetch('http://localhost:3000/')
 
   const retorno = await fetch('http://localhost:3000/api/form')
   const data = await retorno.json()
@@ -25,12 +28,29 @@ export async function getServerSideProps(context) {
 
 
 
-import React from "react";
-
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
+
+
 export default function Table({ cadastros }) {
+  const route = useRouter()
+
+
+  async function deleteAluno(id) {
+
+    const retorno = await fetch('/api/form', {
+      method: "DELETE",
+      headers: {
+        'Content-Type': 'application/json',
+        chave: id,
+      },
+    });
+    const result = await retorno.json()
+    retorno.ok ? swal(result.resultado, { icon: "success" }).then((value) => { route.reload() }) : swal(result.resultado, { icon: "error" }).then((value) => { route.reload() });
+
+  }
+
   return (
     <div className="flex flex-col">
       <div className="overflow-x-auto">
@@ -162,14 +182,9 @@ export default function Table({ cadastros }) {
 
 
 
-
-
-
-
-
               <tbody className="divide-y divide-gray-200">
                 {cadastros.map((aluno) => (
-                  <tr>
+                  <tr key={aluno._id}>
                     <td className="pl-6 py-4 text-sm font-medium text-gray-800 ">
                       {aluno._id}
                     </td>
@@ -198,12 +213,12 @@ export default function Table({ cadastros }) {
                       </a>
                     </td>
                     <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
-                      <a
+                      <button
                         className="text-red-500 hover:text-red-700"
-                        href="#"
+                        onClick={() => deleteAluno(aluno._id)}
                       >
                         Delete
-                      </a>
+                      </button>
                     </td>
                   </tr>
                 ))}

@@ -6,7 +6,7 @@ import { getSession } from "next-auth/react";
 export default function estado(){
     return(
         <>
-            <h1>ola</h1>
+            
         </>
     );
 }

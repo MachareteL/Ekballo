@@ -65,15 +65,15 @@ export default function cadastro(session) {
 
 
     return (
-        <div className="h-screen bg-slate-900">
-            <div className="grid bg-slate-900 container m-auto min-h-full">
+        <div className="h-screen bg-gray-900">
+            <div className="grid bg-gray-900 container m-auto min-h-full">
                 <form
                     onSubmit={handleSubmit}
-                    className="grid grid-cols-2 w-11/12 bg-slate-800 m-auto self-center h-3/4 rounded-md items-center sm:w-1/2 ">
+                    className="grid grid-cols-2 w-11/12 bg-slate-800 m-auto self-center h-3/4 rounded-md items-center sm:w-1/2">
                     <Image priority src={logo} alt="Logo" className="justify-self-center col-span-2" />
                     <div className="flex col-span-2">
                         <label htmlFor="nome" className="text-white mx-4">Nome: </label>
-                        <input required type="text" name="nome" id="nome" placeholder="* Nome Completo" className="caret-white text-white bg-slate-900 p-2 h-7 w-full mr-4 rounded" />
+                        <input required type="text" name="nome" id="nome" placeholder="* Nome Completo" className="outline-none focus:border focus:border-b-blue-500 origin-bottom caret-white text-white bg-slate-900 p-2 h-7 w-full mr-4 rounded" />
                     </div>
                     <div className="flex col-span-2">
                         <label htmlFor="telefone" className="text-white mx-4">Telefone: </label>
@@ -83,9 +83,9 @@ export default function cadastro(session) {
                         <label htmlFor="endereco" className="text-white mx-4">Endereço: </label>
                         <input type="endereco" name="endereco" id="endereco" placeholder="Ex: Bairro Rua Cep" className="caret-white text-white bg-slate-900 p-2 h-7 w-full mr-4 rounded" />
                     </div>
-                    <div className="col-span-1">
-                        <label htmlFor="idade" className="text-white mx-4">Idade do Aluno: </label>
-                        <input type="number" name="idade" id="idade" className="h-8 w-10" />
+                    <div className="col-span-1 grid sm:flex">
+                        <label htmlFor="idade" className="text-white mx-4">Data de Nascimento: </label>
+                        <input type="date" name="idade" id="idade" className="h-8 ml-4" />
                     </div>
                     <div className="col-span-1">
                         <label htmlFor="curso" className="text-white mx-4">Curso: </label>
@@ -105,7 +105,7 @@ export default function cadastro(session) {
                         <label htmlFor="termos" className="text-center text-white w-11/12"><a href="#"> Li e Concordo</a> com os termos de uso, ciente de todos os <a href="#">termos de politica e privacidade.</a></label>
                     </div>
                     <div className="col-span-2 flex justify-end">
-                        <button type="submit" className="bg-gray-600 p-2 rounded-lg text-white mr-4 hover:bg-slate-700 active:bg-slate-700">Matricular</button>
+                        <button type="submit" className="bg-gray-600 p-2 rounded-lg text-white mr-4 hover:bg-blue-700 active:bg-slate-700">Matricular</button>
                     </div>
                 </form>
             </div>

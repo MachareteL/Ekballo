@@ -1,1 +1,13 @@
 https://dev.gerencianet.com.br/docs
+
+
+- Nome 
+- Telefone
+- Data de nascimento 
+- Documento 
+- Endereço
+
+- Nome do responsável 
+- Documento do responsável 
+- Curso de interesse 
+- Termos
