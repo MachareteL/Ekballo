@@ -83,10 +83,14 @@ export default function cadastro(session) {
                         <label htmlFor="endereco" className="text-white mx-4">Endereço: </label>
                         <input type="endereco" name="endereco" id="endereco" placeholder="Ex: Bairro Rua Cep" className="caret-white text-white bg-slate-900 p-2 h-7 w-full mr-4 rounded" />
                     </div>
+
+
                     <div className="col-span-1 grid sm:flex">
                         <label htmlFor="idade" className="text-white mx-4">Data de Nascimento: </label>
                         <input type="date" name="idade" id="idade" className="h-8 ml-4" />
                     </div>
+
+                    
                     <div className="col-span-1">
                         <label htmlFor="curso" className="text-white mx-4">Curso: </label>
                         <select name="curso" id="curso" className="bg-slate-900 text-white p-1 rounded">

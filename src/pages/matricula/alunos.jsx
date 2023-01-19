@@ -1,6 +1,7 @@
 import { getSession } from "next-auth/react"
 import { useRouter } from "next/router"
 import React from "react";
+import { useState } from "react";
 import swal from "sweetalert"
 
 
@@ -35,20 +36,25 @@ function classNames(...classes) {
 
 export default function Table({ cadastros }) {
   const route = useRouter()
-
+  const [edit, setEdit] = useState(false)
 
   async function deleteAluno(id) {
 
-    const retorno = await fetch('/api/form', {
-      method: "DELETE",
-      headers: {
-        'Content-Type': 'application/json',
-        chave: id,
-      },
-    });
+    const retorno = await fetch(`/api/form/${id}`, {
+      method: 'DELETE'
+    })
     const result = await retorno.json()
     retorno.ok ? swal(result.resultado, { icon: "success" }).then((value) => { route.reload() }) : swal(result.resultado, { icon: "error" }).then((value) => { route.reload() });
 
+  }
+
+
+
+
+
+  async function handleEdit(id){
+    setEdit(!edit)
+    console.log(edit)
   }
 
   return (
@@ -205,12 +211,12 @@ export default function Table({ cadastros }) {
                     </td>
 
                     <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
-                      <a
+                      <button
                         className="text-green-500 hover:text-green-700"
-                        href="#"
+                        onClick={handleEdit}
                       >
                         Edit
-                      </a>
+                      </button>
                     </td>
                     <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
                       <button

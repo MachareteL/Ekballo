@@ -42,17 +42,13 @@ export default function NavBar() {
                 </Disclosure.Button>
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-between">
-                <div onClick={()=>{route.push('/')}} className="flex flex-shrink-0 items-center">
+                <div onClick={()=>{route.push('/')}} className="flex flex-shrink-0 items-center cursor-pointer">
                   <Image
-                    className="block h-12 w-auto lg:hidden"
+                    className="h-12 w-auto block"
                     src={logo}
                     alt="Ekballo"
                   />
-                  <Image
-                    className="hidden h-12 w-auto lg:block"
-                    src={logo}
-                    alt="Ekballo"
-                  />
+                  <span className='hidden sm:inline text-gray-100 font-medium uppercase'>Ekballo</span>
                 </div>
                 <div className="hidden sm:ml-6 sm:flex sm:flex-row items-center">
                   <div className="flex space-x-4">
