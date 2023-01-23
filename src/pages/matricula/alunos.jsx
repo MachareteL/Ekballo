@@ -36,7 +36,6 @@ function classNames(...classes) {
 
 export default function Table({ cadastros }) {
   const route = useRouter()
-  const [edit, setEdit] = useState(false)
 
   async function deleteAluno(id) {
 
@@ -53,8 +52,15 @@ export default function Table({ cadastros }) {
 
 
   async function handleEdit(id){
-    setEdit(!edit)
-    console.log(edit)
+    const retorno = await fetch(`/api/form/${id}`,{
+    method: 'GET'})
+    const res = (await retorno.json()).resultado
+    
+    swal({
+      title: "Editar Matricula",
+      content: "input",
+      value: res.nome
+    })
   }
 
   return (
@@ -213,7 +219,7 @@ export default function Table({ cadastros }) {
                     <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
                       <button
                         className="text-green-500 hover:text-green-700"
-                        onClick={handleEdit}
+                        onClick={()=> handleEdit(aluno._id)}
                       >
                         Edit
                       </button>

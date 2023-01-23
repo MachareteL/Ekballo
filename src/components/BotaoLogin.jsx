@@ -9,6 +9,7 @@ export default function BotaoLogin() {
   const { data: session } = useSession()
   
   if (session) {
+    const foto = (session.user.image).toString()
     return (
       <>
         <Menu as="div" className="relative ml-3">
@@ -18,7 +19,7 @@ export default function BotaoLogin() {
                      
                       <img
                         className="h-8 w-8 rounded-full"
-                        src={(session.user.image).toString()}
+                        src={foto}
                         alt=""
                       />
                     </Menu.Button>
