@@ -97,6 +97,8 @@ export default function cadastro(session) {
                             <option value="ingles">Inglês</option>
                             <option value="reforo">Reforço</option>
                             <option value="musica">Música</option>
+                            <option value="musica">Muai Thay</option>
+
                         </select>
                     </div>
                     <div className="flex col-span-2 ">
