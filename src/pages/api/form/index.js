@@ -8,8 +8,13 @@ export default async function handler(req, res) {
   switch (req.method) {
 
     case "GET":
-      const allPosts = await db.collection("matriculas").find({}).toArray();
-      res.json({ status: 200, data: allPosts });
+      try{
+        const allPosts = await db.collection("matriculas").find({}).toArray();
+        res.json({ status: 200, data: allPosts });
+      }
+      catch(error){
+        res.json({status: 200, data: error})
+      }
       break;
 
     case "POST":
@@ -21,6 +26,5 @@ export default async function handler(req, res) {
         res.status(401).json({ error: err });
       }
       break;
-
   }
 }

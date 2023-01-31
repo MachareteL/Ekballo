@@ -5,7 +5,7 @@ import BotaoLogin from "./BotaoLogin"
 import logo from "../../public/favicon.png"
 import Image from 'next/image'
 import { useRouter } from 'next/router'
-
+import Link from 'next/link'
 
 
 function classNames(...classes) {
@@ -16,13 +16,13 @@ export default function NavBar() {
   const route = useRouter()
   console.log(route.pathname)
   const navigation = [
-    { name: 'Quem somos', href: '#', current: (route.pathname == "/"? true : false) },
-    { name: 'Team', href: '/team', current: (route.pathname == "/team"? true : false) },
+    { name: 'Quem somos', href: '#', current: (route.pathname == "/" ? true : false) },
+    { name: 'Cursos', href: '/cursos', current: (route.pathname == "/cursos" ? true : false), },
     { name: 'Projects', href: '#', current: false },
-    { name: 'Matricula', href: '/matricula', current: (route.pathname == "/matricula"? true : false) },
+    { name: 'Matricula', href: '/matricula', current: (route.pathname == "/matricula" ? true : false) },
   ]
   return (
-    <Disclosure as="nav" className="bg-slate-800">
+    <Disclosure as="nav" className="bg-slate-800 shadow-md py-1">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -32,7 +32,7 @@ export default function NavBar() {
 
 
                 {/* Mobile menu button*/}
-                <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                <Disclosure.Button className="inline-flex items-center justify-center ease-in-out duration-300 rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                   <span className="sr-only">Open main menu</span>
                   {open ? (
                     <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
@@ -42,7 +42,7 @@ export default function NavBar() {
                 </Disclosure.Button>
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-between">
-                <div onClick={()=>{route.push('/')}} className="flex flex-shrink-0 items-center cursor-pointer">
+                <div onClick={() => { route.push('/') }} className="flex flex-shrink-0 items-center cursor-pointer">
                   <Image
                     className="h-12 w-auto block"
                     src={logo}
@@ -53,7 +53,7 @@ export default function NavBar() {
                 <div className="hidden sm:ml-6 sm:flex sm:flex-row items-center">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
-                      <a
+                      <Link
                         key={item.name}
                         href={item.href}
                         className={classNames(
@@ -61,9 +61,10 @@ export default function NavBar() {
                           'px-3 py-2 rounded-md text-sm font-medium h-fit'
                         )}
                         aria-current={item.current ? 'page' : undefined}
+                        scroll={true}
                       >
                         {item.name}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </div>
@@ -74,12 +75,12 @@ export default function NavBar() {
                   className="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                 >
                   <span className="sr-only">teste</span>
-                  
+
                 </button>
 
                 {/* Profile dropdown */}
                 <BotaoLogin />
-                
+
               </div>
             </div>
           </div>
@@ -95,7 +96,7 @@ export default function NavBar() {
                     item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                     'block px-3 py-2 rounded-md text-base font-medium'
                   )}
-                  
+                  scroll={true}
                 >
                   {item.name}
                 </Disclosure.Button>

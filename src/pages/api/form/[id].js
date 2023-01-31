@@ -8,6 +8,15 @@ export default async function handler(req, res) {
     const { id } = req.query
 
     switch (req.method) {
+        case "GET":
+            try {
+                const achado = await db.collection("matriculas").findOne(ObjectId(id));
+                res.status(200).json({ resultado: achado })
+            } catch (error) {
+                res.end(error)
+            }
+            break;
+
         case "DELETE":
             try {
                 const achado = await db.collection("matriculas").findOne(ObjectId(id));
@@ -20,13 +29,5 @@ export default async function handler(req, res) {
                 res.status(401).json({ resultado: err });
             }
             break;
-            
-        case "GET":
-            try {
-                const achado = await db.collection("matriculas").findOne(ObjectId(id));
-                res.status(200).json({resultado: achado})
-            } catch (error) {
-                res.end(error)
-            }
     }
-}
+}       

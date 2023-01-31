@@ -1,21 +1,62 @@
 import Image from 'next/image'
 import logo from '../../public/favicon.png'
+import image1 from '../../public/imagens/class.jpeg'
+import imagem from '../../public/imagens/ekballo(12).jpeg'
 
 export default function Home() {
   return (
     <>
+
+      <section className="mb-40">
+
+
+        <div className="px-6 py-12 md:px-12 bg-gray-50 text-gray-800 text-center lg:text-left">
+          <div className="container mx-auto xl:px-32">
+            <div className="grid lg:grid-cols-2 gap-12 lg:flex items-center">
+              <div className="mt-12 lg:mt-0">
+                <h1 className="text-5xl md:text-6xl xl:text-7xl font-bold tracking-tight mb-12 font-">Levando o <span className='text-red-500'> amor </span><br />através do <span className="text-blue-600">cuidado e do zelo</span></h1>
+                <a className="inline-block px-7 py-3 mr-2 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out" data-mdb-ripple="true" data-mdb-ripple-color="light" href="#!" role="button">Quero ser aluno</a>
+                <a className="inline-block px-7 py-3 bg-transparent text-blue-600 font-medium text-sm leading-snug uppercase rounded hover:text-blue-700 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none focus:ring-0 active:bg-gray-200 transition duration-150 ease-in-out" data-mdb-ripple="true" data-mdb-ripple-color="light" href="#!" role="button">Entre em Contato</a>
+              </div>
+              <div className="mb-12 lg:mb-0">
+                <Image src={imagem} className="rounded-lg shadow-lg"/>
+                {/* <img
+                  src="https://mdbootstrap.com/img/new/ecommerce/vertical/028.jpg"
+                  className="w-full rounded-lg shadow-lg"
+                  alt=""
+                /> */}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
       {/* <!-- Container for demo purpose --> */}
       <div className="container my-12 px-6 mx-auto">
 
         {/* <!-- Section: Design Block --> */}
         <section className="mb-32 text-gray-800">
-          <h1 className="text-2xl font-bold mb-12 text-center">Latest articles</h1>
+          <h1 className="text-2xl font-bold mb-12 text-center">Quem somos?</h1>
 
           <div className="flex flex-wrap mb-12">
             <div className="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pr-6 mb-6 lg:mb-0">
               <div className="relative overflow-hidden bg-no-repeat bg-cover ripple shadow-lg rounded-lg bg-center" data-mdb-ripple="true" data-mdb-ripple-color="light">
-                <img src="https://mdbootstrap.com/img/new/standard/city/028.jpg" className="w-full" alt="Louvre" />
+                <Image src={image1} alt="kids" className='w-full saturate-150' />
+                {/* <img src="https://mdbootstrap.com/img/new/standard/city/028.jpg" className="w-full" alt="Louvre" /> */}
                 <a href="#!">
                   <div
                     className="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-100 transition duration-300 ease-in-out bg-slate-50 bg-opacity-30"></div>
@@ -121,7 +162,9 @@ export default function Home() {
           </div>
         </section>
         {/* <!-- Section: Design Block --> */}
-
+        <div id="teste">
+          <h1>teste</h1>
+        </div>
       </div>
       {/* <!-- Container for demo purpose --> */}
 

@@ -79,12 +79,6 @@ export default function cadastro(session) {
                         <label htmlFor="telefone" className="text-white mx-4">Telefone: </label>
                         <input required type="tel" name="telefone" id="telefone" placeholder="* (DDD)9 XXXX-XXXX" className="caret-white text-white bg-slate-900 rounded p-2 h-7 w-full mr-4" />
                     </div>
-                    <div className="flex col-span-2">
-                        <label htmlFor="endereco" className="text-white mx-4">Endereço: </label>
-                        <input type="endereco" name="endereco" id="endereco" placeholder="Ex: Bairro Rua Cep" className="caret-white text-white bg-slate-900 p-2 h-7 w-full mr-4 rounded" />
-                    </div>
-
-
                     <div className="col-span-1 grid sm:flex">
                         <label htmlFor="idade" className="text-white mx-4">Data de Nascimento: </label>
                         <input type="date" name="idade" id="idade" className="h-8 ml-4" />
@@ -101,14 +95,31 @@ export default function cadastro(session) {
 
                         </select>
                     </div>
+                    
+                    <div className="flex col-span-2">
+                        <label htmlFor="documentoAluno" className="text-white mx-4">Documento do aluno:</label>
+                        <input type="text" name="documentoAluno" id="documentoAluno" placeholder="CPF ou RG" className="caret-white text-white bg-slate-900 p-2 h-7 w-full mr-4 rounded"/>
+                    </div>
+
+                    <div className="flex col-span-2">
+                        <label htmlFor="endereco" className="text-white mx-4">Endereço: </label>
+                        <input type="endereco" name="endereco" id="endereco" placeholder="Ex: Bairro Rua Cep" className="caret-white text-white bg-slate-900 p-2 h-7 w-full mr-4 rounded" />
+                    </div>
+
+
                     <div className="flex col-span-2 ">
                         <label htmlFor="responsavel" className="text-white mx-4">Responsável: </label>
                         <input required type="text" name="responsavel" id="responsavel" placeholder="* Nome do Pai ou Mâe" className="caret-white text-white bg-slate-900 rounded p-2 h-7 w-full mr-4" />
                     </div>
 
+                    <div className="flex col-span-2">
+                        <label htmlFor="documentoPai" className="text-white mx-4">Documento do Responsável:</label>
+                        <input type="text" name="documentoPai" id="documentoPai" placeholder="CPF ou RG" className="caret-white text-white bg-slate-900 p-2 h-7 w-full mr-4 rounded"/>
+                    </div>
+
                     <div className="flex col-span-2 items-baseline justify-center">
                         <input required type="checkbox" name="termos" id="termos" />
-                        <label htmlFor="termos" className="text-center text-white w-11/12"><a href="#"> Li e Concordo</a> com os termos de uso, ciente de todos os <a href="#">termos de politica e privacidade.</a></label>
+                        <label htmlFor="termos" className="text-center text-white w-11/12"><a role="button" className="underline" onClick={()=>{swal({title: "TERMOS DE USO E PRIVACIDADE",text:"O Projeto Social Ekballo é uma instituição cristã e sem fins lucrativos, lorem ipsum dolem aaa teste lucas ouisgergpuio eu pioerg opejg pong aofjas aqui  vai um texo  a aletaori  apra e cnehr  toda a  apar te auqi  e legal \n teste do contra barra ne pra vae \n qoiwhoitt \t teste", button: "Confirmo"})}}> Li e Concordo</a> com os termos de uso, ciente de todos os termos de politica e privacidade.</label>
                     </div>
                     <div className="col-span-2 flex justify-end">
                         <button type="submit" className="bg-gray-600 p-2 rounded-lg text-white mr-4 hover:bg-blue-700 active:bg-slate-700">Matricular</button>
