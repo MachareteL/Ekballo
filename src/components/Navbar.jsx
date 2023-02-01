@@ -16,7 +16,7 @@ export default function NavBar() {
   const route = useRouter()
   console.log(route.pathname)
   const navigation = [
-    { name: 'Quem somos', href: '#', current: (route.pathname == "/" ? true : false) },
+    { name: 'Quem somos', href: '#somos', current: (route.pathname == "/" ? true : false) },
     { name: 'Cursos', href: '/cursos', current: (route.pathname == "/cursos" ? true : false), },
     { name: 'Projects', href: '#', current: false },
     { name: 'Matricula', href: '/matricula', current: (route.pathname == "/matricula" ? true : false) },
