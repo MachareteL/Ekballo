@@ -1,16 +1,16 @@
 function Footer() {
     return (
-        <footer class="text-center bg-gray-900 text-white">
-            <div class="container m-auto px-6 pt-6">
-                <div class="flex mb-6 justify-center">
+        <footer className="text-center bg-gray-900 text-white">
+            <div className="container m-auto px-6 pt-6">
+                <div className="flex mb-6 justify-center">
                     <li className="list-none flex items-center">
 
-                        <a href="#!" type="button" class=" rounded-full border-2 border-white text-white leading-normal w-9 h-9 m-1">
+                        <a href="https://www.instagram.com/projeto_ekballo.oficial/" target={"_blank"} type="button" className=" rounded-full border-2 border-white text-white leading-normal w-9 h-9 m-1">
                             <svg aria-hidden="true"
                                 focusable="false"
                                 data-prefix="fab"
                                 data-icon="instagram"
-                                class="w-3 h-full mx-auto"
+                                className="w-3 h-full mx-auto"
                                 role="img"
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 448 512"
@@ -22,7 +22,7 @@ function Footer() {
                                 </path>
                             </svg>
                         </a>
-                        <a href="#!">
+                        <a href="https://www.instagram.com/projeto_ekballo.oficial/" target={"_blank"}>
                             Instagram
                         </a>    
                     </li>
@@ -34,7 +34,7 @@ function Footer() {
 
 
 
-                <div class="mb-6">
+                <div className="mb-6">
                     <p className="font-serif italic">
                         Porque dEle, e por Ele, e para Ele, são todas as coisas.
                         <br />
@@ -43,7 +43,7 @@ function Footer() {
                 </div>
             </div>
 
-            <div class="text-center p-4 opacity-20">
+            <div className="text-center p-4 opacity-20">
                 © 2023 Copyright: Projeto Ekballo
             </div>
         </footer>

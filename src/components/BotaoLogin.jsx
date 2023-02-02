@@ -1,5 +1,5 @@
 import { useSession, signIn, signOut, getSession } from "next-auth/react"
-import { Menu, Transition, Fragment } from '@headlessui/react'
+import { Menu, Transition } from '@headlessui/react'
 
 
 function classNames(...classes) {
@@ -26,7 +26,6 @@ export default function BotaoLogin() {
                       
                   </div>
                   <Transition
-                    as={Fragment}
                     enter="transition ease-out duration-100"
                     enterFrom="transform opacity-0 scale-95"
                     enterTo="transform opacity-100 scale-100"
