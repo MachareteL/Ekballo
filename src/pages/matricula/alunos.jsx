@@ -17,7 +17,7 @@ export async function getServerSideProps(context) {
     }
   }
 
-  const retorno = await fetch('http://localhost:3000/api/form')
+  const retorno = await fetch('https://ekballo.vercel.app/api/form')
   const data = await retorno.json()
   const cadastros = data.data
 

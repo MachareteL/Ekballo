@@ -24,7 +24,7 @@ export async function getServerSideProps(context){
         }
     }
 
-    const rest = await fetch('http://localhost:3000/api/form/verify', {
+    const rest = await fetch('https://ekballo.vercel.app/api/form/verify', {
         method: 'POST',
         'Content-Type': 'application/json',
         body: JSON.stringify(session.user.email)
