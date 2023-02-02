@@ -16,7 +16,7 @@ export default function Home() {
               <div className="mt-12 lg:mt-0">
                 <h1 className="text-5xl md:text-6xl xl:text-7xl font-bold tracking-tight mb-12 font-">Levando o <span className='text-red-500'> Amor </span><br />através do cuidado e do zelo</h1>
                 <a className="inline-block px-7 py-3 mr-2 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out" data-mdb-ripple="true" data-mdb-ripple-color="light" href="matricula" role="button">Quero ser aluno</a>
-                <a className="inline-block px-7 py-3 bg-transparent text-blue-600 font-medium text-sm leading-snug uppercase rounded hover:text-blue-700 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none focus:ring-0 active:bg-gray-200 transition duration-150 ease-in-out" data-mdb-ripple="true" data-mdb-ripple-color="light" href="#!" role="button">Mais informações</a>
+                {/* <a className="inline-block px-7 py-3 bg-transparent text-blue-600 font-medium text-sm leading-snug uppercase rounded hover:text-blue-700 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none focus:ring-0 active:bg-gray-200 transition duration-150 ease-in-out" data-mdb-ripple="true" data-mdb-ripple-color="light" href="#!" role="button">Mais informações</a> */}
               </div>
               <div className="mb-12 lg:mb-0">
                 <Image src={imagem} className="rounded-lg shadow-lg" />
@@ -97,8 +97,8 @@ export default function Home() {
             </div>
 
             <div className="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pr-6">
-              <h3 className="text-2xl font-bold mb-4">Exhibition in Paris</h3>
-              <div className="text-blue-600 text-sm mb-4 flex items-center font-medium">
+              <h3 className="text-2xl font-bold mb-4">A luta por dias melhores!</h3>
+              <div className="text-red-600 text-sm mb-4 flex items-center font-medium">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="w-4 h-4 mr-2">
                   {/* <!-- Font Awesome Pro 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) --> */}
                   <path fill="currentColor"
@@ -107,53 +107,12 @@ export default function Home() {
                 A arte
               </div>
               <p className="text-gray-500">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi quae nobis vero tenetur enim iusto hic facere corrupti eos accusamus quos nisi, quam et repellat ratione eius fugit error autem!
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident optio quas voluptatum quo eaque nulla obcaecati repudiandae fuga, doloremque sapiente distinctio cum blanditiis molestiae nesciunt labore harum id illum recusandae
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione et doloremque debitis, sapiente minus ex assumenda itaque odio animi molestiae veniam voluptatum quidem deserunt repudiandae sequi dolorem ad nisi laborum.
+              Lutamos por mais oportunidades!
               </p>
             </div>
           </div>
 
-          <div className="flex flex-wrap">
-            <div className="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pr-6 mb-6 lg:mb-0">
-              <div className="relative overflow-hidden bg-no-repeat bg-cover ripple shadow-lg rounded-lg teste" data-mdb-ripple="true" data-mdb-ripple-color="light">
-                <img src="https://mdbootstrap.com/img/new/standard/city/079.jpg" className="w-full" alt="Louvre" />
-                <a href="#!">
-                  <div
-                    className="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-100 transition duration-300 ease-in-out bg-slate-50 bg-opacity-30"></div>
-                </a>
-              </div>
-            </div>
-
-            <div className="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pl-6">
-              <h3 className="text-2xl font-bold mb-4">Stock market</h3>
-              <div className="text-yellow-600 text-sm mb-4 flex items-center font-medium">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" className="w-4 h-4 mr-2">
-                  {/* <!-- Font Awesome Pro 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) --> */}
-                  <path fill="currentColor"
-                    d="M608 64H32C14.33 64 0 78.33 0 96v320c0 17.67 14.33 32 32 32h576c17.67 0 32-14.33 32-32V96c0-17.67-14.33-32-32-32zM48 400v-64c35.35 0 64 28.65 64 64H48zm0-224v-64h64c0 35.35-28.65 64-64 64zm272 176c-44.19 0-80-42.99-80-96 0-53.02 35.82-96 80-96s80 42.98 80 96c0 53.03-35.83 96-80 96zm272 48h-64c0-35.35 28.65-64 64-64v64zm0-224c-35.35 0-64-28.65-64-64h64v64z" />
-                </svg>
-                Business
-              </div>
-              <p className="text-gray-500 mb-6 text-sm">
-                Published <u>10.01.2022</u> by
-                <a href="#!">Joe Svan</a>
-              </p>
-              <p className="text-gray-500">
-                Sed sollicitudin purus sed nulla dignissim ullamcorper. Aenean tincidunt vulputate
-                libero, nec imperdiet sapien pulvinar id. Nullam scelerisque odio vel lacus faucibus,
-                tincidunt feugiat augue ornare. Proin ac dui vel lectus eleifend vestibulum et
-                lobortis risus. Nullam in commodo sapien. Curabitur ut erat congue sem finibus
-                eleifend egestas eu metus. Sed ut dolor id magna rutrum ultrices ut eget libero. Duis
-                vel porttitor odio. Ut pulvinar sed turpis ornare tincidunt. Donec luctus, mi euismod
-                dignissim malesuada, lacus lorem commodo leo, tristique blandit ante mi id metus.
-                Integer et vehicula leo, vitae interdum lectus. Praesent nulla purus, commodo at
-                euismod nec, blandit ultrices erat. Aliquam eros ipsum, interdum et mattis vitae,
-                faucibus vitae justo. Nulla condimentum hendrerit leo, in feugiat ipsum condimentum
-                ac. Maecenas sed blandit dolor.
-              </p>
-            </div>
-          </div>
+          
         </section>
       </div>
       {/* <!-- Container for demo purpose --> */}

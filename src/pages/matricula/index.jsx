@@ -21,6 +21,9 @@ export default function cadastro(session) {
             idade: event.target.idade.value,
             curso: event.target.curso.value,
             responsavel: event.target.responsavel.value,
+            documentoPai: event.target.documentoPai.value,
+            documentoAluno: event.target.documentoAluno.value,
+  
             situacao: 'pendente',
             data: dia
         }
@@ -57,6 +60,8 @@ export default function cadastro(session) {
         event.target.idade.value = ""
         event.target.curso.value = ""
         event.target.responsavel.value = ""
+        event.target.documentoPai.value,
+        event.target.documentoAluno.value,
         response.ok? swal(result.result) : swal(result.error)
     }
 
@@ -90,9 +95,9 @@ export default function cadastro(session) {
                         <select name="curso" id="curso" className="bg-slate-900 text-white p-1 rounded">
                             <option value="ingles">Inglês</option>
                             <option value="reforo">Reforço</option>
-                            <option value="musica">Música</option>
-                            <option value="musica">Muai Thay</option>
-
+                            <option value="violao">Violão</option>
+                            <option value="luta">Muay Thai</option>
+                            <option value="bateria">Bateria</option>
                         </select>
                     </div>
                     

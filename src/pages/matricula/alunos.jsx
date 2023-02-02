@@ -167,6 +167,13 @@ export default function Table({ cadastros }) {
                       </svg>
                     </span>
                   </th>
+
+                  <th
+                    scope="col"
+                    className="px-6 py-3 text-xs font-bold text-start text-gray-500 uppercase "
+                  >
+                    Telefone
+                  </th>
                   <th
                     scope="col"
                     className="px-6 py-3 text-xs font-bold text-left text-gray-500 uppercase ">
@@ -189,6 +196,7 @@ export default function Table({ cadastros }) {
                   >
                     Delete
                   </th>
+                  
                 </tr>
               </thead>
 
@@ -206,6 +214,10 @@ export default function Table({ cadastros }) {
                     <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
                       {aluno.email}
                     </td>
+                    <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
+                      {aluno.telefone}
+                    </td>
+
                     <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
                       {aluno.curso}
                     </td>

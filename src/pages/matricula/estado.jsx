@@ -23,14 +23,18 @@ export async function getServerSideProps(context){
             },
         }
     }
+
     const rest = await fetch('http://localhost:3000/api/form/verify', {
         method: 'POST',
         'Content-Type': 'application/json',
         body: JSON.stringify(session.user.email)
     })
+
+    
     const et = await rest.json()
-    // console.log(et)
+
+
     return{
-        props: session
+        props: session,
     }
 }

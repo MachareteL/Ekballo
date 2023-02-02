@@ -17,8 +17,8 @@ export default function NavBar() {
   console.log(route.pathname)
   const navigation = [
     { name: 'Quem somos', href: '#somos', current: (route.pathname == "/" ? true : false) },
-    { name: 'Cursos', href: '/cursos', current: (route.pathname == "/cursos" ? true : false), },
-    { name: 'Projects', href: '#', current: false },
+    // { name: 'Cursos', href: '/cursos', current: (route.pathname == "/cursos" ? true : false), },
+    // { name: 'Projects', href: '#', current: false },
     { name: 'Matricula', href: '/matricula', current: (route.pathname == "/matricula" ? true : false) },
   ]
   return (
@@ -44,11 +44,12 @@ export default function NavBar() {
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-between">
                 <div onClick={() => { route.push('/') }} className="flex flex-shrink-0 items-center cursor-pointer">
                   <Image
-                    className="h-12 w-auto block"
+                    className="block"
                     src={logo}
                     alt="Ekballo"
-                  />
-                  <span className='hidden sm:inline text-gray-100 font-medium uppercase'>Ekballo</span>
+                    width={75}
+                    />
+                  <span className='hidden sm:inline text-gray-100 font-bold uppercase text-5xl'>Ekballo</span>
                 </div>
                 <div className="hidden sm:ml-6 sm:flex sm:flex-row items-center">
                   <div className="flex space-x-4">
@@ -74,7 +75,7 @@ export default function NavBar() {
                   type="button"
                   className="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                 >
-                  <span className="sr-only">teste</span>
+                  <span className="sr-only"></span>
 
                 </button>
 
