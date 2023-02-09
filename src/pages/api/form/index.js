@@ -34,7 +34,7 @@ export default async function handler(req, res) {
         const filter = { _id: ObjectId(id) };
 
         // this option instructs the method to create a document if no documents match the filter
-        const options = { upsert: false };
+        const options = { upsert: true };
 
         // create a document that sets the plot of the movie
         const updateDoc = {
