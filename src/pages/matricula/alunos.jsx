@@ -1,8 +1,9 @@
 import { getSession } from "next-auth/react"
 import { useRouter } from "next/router"
 import React from "react";
+import { useState } from "react";
 import swal from "sweetalert"
-
+import Swal from "sweetalert2";
 
 export async function getServerSideProps(context) {
   const session = await getSession(context)
@@ -35,8 +36,9 @@ function classNames(...classes) {
 
 export default function Table({ cadastros }) {
   const route = useRouter()
-
+  const [estado, setEstado] = useState()
   async function deleteAluno(id) {
+
 
     const retorno = await fetch(`/api/form/${id}`, {
       method: 'DELETE'
@@ -50,16 +52,47 @@ export default function Table({ cadastros }) {
 
 
 
-  async function handleEdit(id){
-    const retorno = await fetch(`/api/form/${id}`,{
-    method: 'GET'})
-    const res = (await retorno.json()).resultado
-    
-    swal({
-      title: "Editar Matricula",
-      content: "input",
-      value: res.nome
+  async function handleEdit(id) {
+    const retorno = await fetch(`/api/form/${id}`, {
+      method: 'GET'
     })
+    const res = (await retorno.json()).resultado
+    console.log(res)
+
+
+    Swal.fire({
+      title: '<b>Editar Matricula</b>',
+      html: `<div>
+      <ul>
+        <li>Nome: ${res.nome}</li>
+        <li>Documento Aluno: ${res.documentoAluno}</li>
+        <li>Endereço: ${res.endereco}</li>
+        <li>Nascimento: ${res.idade}</li>
+        ${res.responsavel ? "<li>Responsável: " + res.responsavel + "</li>" : ""}
+        ${res.documentoPai ? "<li>Documento Responsável: " + res.documentoPai + "</li>" : ""}
+        <li>Curso: ${res.curso}</li>
+        <li>Situação: ${res.situacao}</li>
+      </ul>
+      </div>`,
+      confirmButtonText: "Confirmar"
+    })
+      .then((confirmado) => {
+        if (!confirmado.isConfirmed) {
+          console.log('cancelado')
+          throw null
+        };
+
+        return fetch(`/api/form/${id}`, {
+          method: 'GET'
+        })
+          .then(resultadoFetch => {
+            return resultadoFetch.json()
+          })
+          .then(objetoNotation => {
+            console.log(event.target.estado.value)
+          })
+      })
+
   }
 
   return (
@@ -185,9 +218,9 @@ export default function Table({ cadastros }) {
                   </th>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-xs font-bold text-right text-gray-500 uppercase "
+                    className="px-6 py-3 text-xs font-bold text-start text-gray-500 uppercase bg-slate-200"
                   >
-                    Edit
+                    Editar
                   </th>
                   <th
                     scope="col"
@@ -195,7 +228,7 @@ export default function Table({ cadastros }) {
                   >
                     Delete
                   </th>
-                  
+
                 </tr>
               </thead>
 
@@ -224,16 +257,25 @@ export default function Table({ cadastros }) {
                       (aluno.situacao == 'pendente') ? 'text-yellow-500' : 'text-gray-800', 'uppercase px-6 py-4 text-sm whitespace-nowrap'
 
                     )}>
-                      {aluno.situacao}
+                      <select name="estado">
+                        <option value="pendente" selected >Pendente</option>
+                        <option value="matriculado">Matriculado</option>
+                        <option value="recusado">Recusado</option>
+                      </select>
                     </td>
 
-                    <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
-                      <button
-                        className="text-green-500 hover:text-green-700"
-                        onClick={()=> handleEdit(aluno._id)}
-                      >
-                        Edit
-                      </button>
+                    <td className="px-6 py-4 text-sm font-medium text-right bg-slate-200">
+                      <div className="w-35 flex justify-between">
+                        <button
+                          className="text-green-500 hover:text-green-700"
+                          onClick={() => handleEdit(aluno._id)}
+                        >
+                          Detalhes
+                        </button>
+                        <button>
+                          Confirmar
+                        </button>
+                      </div>
                     </td>
                     <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
                       <button

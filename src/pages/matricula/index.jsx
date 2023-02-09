@@ -54,14 +54,14 @@ export default function cadastro(session) {
         // If server returns the name submitted, that means the form works.
         const result = await response.json()
         console.log(result)
-        event.target.nome.value = ""
-        event.target.telefone.value = ""
-        event.target.endereco.value = ""
-        event.target.idade.value = ""
-        event.target.curso.value = ""
-        event.target.responsavel.value = ""
-        event.target.documentoPai.value,
-        event.target.documentoAluno.value,
+        // event.target.nome.value = ""
+        // event.target.telefone.value = ""
+        // event.target.endereco.value = ""
+        // event.target.idade.value = ""
+        // event.target.curso.value = ""
+        // event.target.responsavel.value = ""
+        // event.target.documentoPai.value,
+        // event.target.documentoAluno.value,
         response.ok? swal(result.result) : swal(result.error)
     }
 
@@ -86,7 +86,7 @@ export default function cadastro(session) {
                     </div>
                     <div className="col-span-1 grid sm:flex">
                         <label htmlFor="idade" className="text-white mx-4">Data de Nascimento: </label>
-                        <input type="date" name="idade" id="idade" className="h-8 ml-4" />
+                        <input type="date" name="idade" id="idade" className="h-8 ml-4" required/>
                     </div>
 
                     

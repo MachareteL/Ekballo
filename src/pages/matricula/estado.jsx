@@ -3,7 +3,8 @@ import { getSession } from "next-auth/react";
 // TODO GET SERVER SIDE PROPS THROUGH AN API REQUEST TO THE DB OVER A NEW API FILE /API/REQUEST
 
 
-export default function estado(){
+export default function estado(et){
+    console.log(et)
     return(
         <>
             
@@ -35,6 +36,6 @@ export async function getServerSideProps(context){
 
 
     return{
-        props: session,
+        props: et,
     }
 }
