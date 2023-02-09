@@ -16,21 +16,32 @@ export default function cadastro(session) {
     const handleSubmit = async (event) => {
         // Stop the form from submitting and refreshing the page.
         event.preventDefault()
-
+        let data
         // Get data from the form.
-        const data = {
+        anos <= 18 ? data = {
             nome: event.target.nome.value,
             telefone: event.target.telefone.value,
             email: session.user.email,
             endereco: event.target.endereco.value,
             idade: event.target.idade.value,
             curso: event.target.curso.value,
-            responsavel: event?.target?.responsavel?.value,
-            documentoPai: event?.target?.documentoPai?.value,
+            responsavel: event.target.responsavel.value,
+            documentoPai: event.target.documentoPai.value,
+            documentoAluno: event.target.documentoAluno.value,
+            situacao: 'pendente',
+            data: dia
+        } : data = {
+            nome: event.target.nome.value,
+            telefone: event.target.telefone.value,
+            email: session.user.email,
+            endereco: event.target.endereco.value,
+            idade: event.target.idade.value,
+            curso: event.target.curso.value,
             documentoAluno: event.target.documentoAluno.value,
             situacao: 'pendente',
             data: dia
         }
+        
 
         // Send the data to the server in JSON format.
         const JSONdata = JSON.stringify(data)
@@ -63,8 +74,8 @@ export default function cadastro(session) {
         event.target.endereco.value = ""
         event.target.idade.value = ""
         event.target.curso.value = ""
-        event?.target?.responsavel?.value = ""
-        event?.target?.documentoPai?.value = "",
+        event.target.responsavel.value = ""
+        event.target.documentoPai.value = "",
         event.target.documentoAluno.value = "",
         response.ok? swal(result.result) : swal(result.error)
     }
