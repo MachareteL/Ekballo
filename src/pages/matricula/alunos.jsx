@@ -254,9 +254,7 @@ export default function Table({ cadastros }) {
                       {aluno.curso}
                     </td>
                     <td className={classNames(
-                      (aluno.situacao == 'pendente') ? 'text-yellow-500' : 'text-gray-800', 'uppercase px-6 py-4 text-sm whitespace-nowrap'
-                      (aluno.situacao == 'matriculado') ? 'text-green-500' : 'text-gray-800', 'uppercase px-6 py-4 text-sm whitespace-nowrap'
-                      (aluno.situacao == 'recusado') ? 'text-red-500' : 'text-gray-800', 'uppercase px-6 py-4 text-sm whitespace-nowrap'
+                      (aluno.situacao == 'pendente') ? 'text-yellow-500' : 'text-green-500', 'uppercase px-6 py-4 text-sm whitespace-nowrap'
                     )}>
                       <select key={aluno._id} name="estado" id="estado" onChange={(e) => handleSelect(e, aluno)} value={aluno.situacao} className="bg-transparent font-semibold">
                         <option value="pendente">Pendente</option>
