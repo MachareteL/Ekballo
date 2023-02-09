@@ -63,7 +63,9 @@ export default function Table({ cadastros }) {
     })
     const res = (await retorno.json()).resultado
     console.log(res)
-    console.log(event.target.estado.value)
+    const JSONdata = JSON.stringify(event.target.estado.value)
+
+    console.log(JSONdata)
 
     Swal.fire({
       title: '<b>Editar Matricula</b>',

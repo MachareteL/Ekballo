@@ -5,7 +5,7 @@ import swal from 'sweetalert';
 
 
 export default function cadastro(session) {
-
+    
     console.log(session)
     const dia = new Date().toLocaleString()
     const handleSubmit = async (event) => {
