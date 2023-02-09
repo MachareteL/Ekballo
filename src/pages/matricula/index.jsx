@@ -25,8 +25,8 @@ export default function cadastro(session) {
             endereco: event.target.endereco.value,
             idade: event.target.idade.value,
             curso: event.target.curso.value,
-            responsavel: event.target.responsavel.value,
-            documentoPai: event.target.documentoPai.value,
+            responsavel: event?.target?.responsavel?.value,
+            documentoPai: event?.target?.documentoPai?.value,
             documentoAluno: event.target.documentoAluno.value,
             situacao: 'pendente',
             data: dia
@@ -63,8 +63,8 @@ export default function cadastro(session) {
         event.target.endereco.value = ""
         event.target.idade.value = ""
         event.target.curso.value = ""
-        event.target.responsavel.value = ""
-        event.target.documentoPai.value = "",
+        event?.target?.responsavel?.value = ""
+        event?.target?.documentoPai?.value = "",
         event.target.documentoAluno.value = "",
         response.ok? swal(result.result) : swal(result.error)
     }
