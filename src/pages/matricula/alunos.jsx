@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 
 export async function getServerSideProps(context) {
   const session = await getSession(context)
-  // console.log(session)
+  console.log(session)
 
   if (!session) {
     return {
@@ -36,7 +36,6 @@ function classNames(...classes) {
 
 export default function Table({ cadastros }) {
   const route = useRouter()
-  const [estado, setEstado] = useState()
   async function deleteAluno(id) {
 
 
@@ -47,8 +46,17 @@ export default function Table({ cadastros }) {
     retorno.ok ? swal(result.resultado, { icon: "success" }).then((value) => { route.reload() }) : swal(result.resultado, { icon: "error" }).then((value) => { route.reload() });
 
   }
+  const handleSelect = async (event) => {
+    // Stop the form from submitting and refreshing the page.
+    event.preventDefault()
 
+    // Get data from the form.
+    const data = {
+        situacao: event.target.estado.value,
+    }
+    console.log(data.situacao)
 
+  }
 
 
 
@@ -76,22 +84,6 @@ export default function Table({ cadastros }) {
       </div>`,
       confirmButtonText: "Confirmar"
     })
-      .then((confirmado) => {
-        if (!confirmado.isConfirmed) {
-          console.log('cancelado')
-          throw null
-        };
-
-        return fetch(`/api/form/${id}`, {
-          method: 'GET'
-        })
-          .then(resultadoFetch => {
-            return resultadoFetch.json()
-          })
-          .then(objetoNotation => {
-            console.log(event.target.estado.value)
-          })
-      })
 
   }
 
@@ -220,7 +212,7 @@ export default function Table({ cadastros }) {
                     scope="col"
                     className="px-6 py-3 text-xs font-bold text-start text-gray-500 uppercase bg-slate-200"
                   >
-                    Editar
+                    Detalhes
                   </th>
                   <th
                     scope="col"
@@ -257,7 +249,7 @@ export default function Table({ cadastros }) {
                       (aluno.situacao == 'pendente') ? 'text-yellow-500' : 'text-gray-800', 'uppercase px-6 py-4 text-sm whitespace-nowrap'
 
                     )}>
-                      <select name="estado">
+                      <select name="estado" onChange={handleSelect}>
                         <option value="pendente" selected >Pendente</option>
                         <option value="matriculado">Matriculado</option>
                         <option value="recusado">Recusado</option>
@@ -265,15 +257,12 @@ export default function Table({ cadastros }) {
                     </td>
 
                     <td className="px-6 py-4 text-sm font-medium text-right bg-slate-200">
-                      <div className="w-35 flex justify-between">
+                      <div className="flex justify-between">
                         <button
                           className="text-green-500 hover:text-green-700"
                           onClick={() => handleEdit(aluno._id)}
                         >
                           Detalhes
-                        </button>
-                        <button>
-                          Confirmar
                         </button>
                       </div>
                     </td>
