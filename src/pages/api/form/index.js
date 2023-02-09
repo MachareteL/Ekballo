@@ -29,7 +29,7 @@ export default async function handler(req, res) {
     case "PUT":
       try {
         // create a filter for a movie to update
-        const filter = { _id: r };
+        const filter = { _id: req.body._id };
 
         // this option instructs the method to create a document if no documents match the filter
         const options = { upsert: false };
