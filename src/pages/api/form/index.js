@@ -20,7 +20,7 @@ export default async function handler(req, res) {
     case "POST":
       try {
         await db.collection("matriculas").insertOne(req.body)
-        res.status(200).json({ result: "Matricula realizada com sucesso!" });
+        res.status(200).json({ result: "Sua matricula foi realizada com sucesso!" });
       } catch (err) {
         console.log(err);
         res.status(401).json({ error: err });

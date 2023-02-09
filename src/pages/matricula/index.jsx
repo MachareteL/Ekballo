@@ -73,7 +73,6 @@ export default function cadastro(session) {
         event.target.telefone.value = ""
         event.target.endereco.value = ""
         event.target.idade.value = ""
-        event.target.curso.value = ""
         anos <= 18 ? event.target.responsavel.value = "" : 
         anos <= 18 ? event.target.documentoPai.value = "" :
         event.target.documentoAluno.value = ""
