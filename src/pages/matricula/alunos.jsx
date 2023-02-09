@@ -249,7 +249,7 @@ export default function Table({ cadastros }) {
                       (aluno.situacao == 'pendente') ? 'text-yellow-500' : 'text-gray-800', 'uppercase px-6 py-4 text-sm whitespace-nowrap'
 
                     )}>
-                      <select name="estado" onChange={handleSelect}>
+                      <select name="estado" id="estado" onChange={handleSelect}>
                         <option value="pendente" selected >Pendente</option>
                         <option value="matriculado">Matriculado</option>
                         <option value="recusado">Recusado</option>
