@@ -64,7 +64,7 @@ export default function Table({ cadastros }) {
     const resultado = await batida.json() 
     console.log(resultado)
     swal({icon: "Sucess", text:`O Estado da Matricula foi alterado para ${event.target.value}`})
-    route.reload()
+    .then(()=>route.reload())
   }
 
 
