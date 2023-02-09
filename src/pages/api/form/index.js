@@ -1,3 +1,4 @@
+import { ObjectId } from "mongodb";
 import clientPromise from "../../../lib/mongodb";
 
 export default async function handler(req, res) {
@@ -42,7 +43,7 @@ export default async function handler(req, res) {
             situacao: situacao
           },
         };
-        const result = await db.collection("matriculas").updateOne({_id: id}, { $set: {situacao: situacao}}, options);
+        const result = await db.collection("matriculas").updateOne({_id: ObjectId(id)}, { $set: {situacao: situacao}}, options);
 
         res.status(200).json({data: "UPDATED SUCESSFULLY!"+result})
       }
