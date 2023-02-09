@@ -8,12 +8,12 @@ export default async function handler(req, res) {
   switch (req.method) {
 
     case "GET":
-      try{
+      try {
         const allPosts = await db.collection("matriculas").find({}).toArray();
         res.json({ status: 200, data: allPosts });
       }
-      catch(error){
-        res.json({status: 200, data: error})
+      catch (error) {
+        res.json({ status: 200, data: error })
       }
       break;
 
@@ -27,12 +27,28 @@ export default async function handler(req, res) {
       }
       break;
     case "PUT":
-      try{
-        const att = await db.collection("matriculas").updateOne({ _id: req.body._id, situcao: req.body.situacao})
-        res.status(200).json({data: "Put method done sucessfully! Document updated!"})
+      try {
+        // create a filter for a movie to update
+        const filter = { _id: r };
+
+        // this option instructs the method to create a document if no documents match the filter
+        const options = { upsert: false };
+
+        // create a document that sets the plot of the movie
+        const updateDoc = {
+          $set: {
+            situacao: req.body.situacao
+          },
+        };
+        const result = await db.collection("matriculas").updateOne(filter, updateDoc, options);
+        console.log(
+          `${result.matchedCount} document(s) matched the filter, updated ${result.modifiedCount} document(s)`,
+        );
+        res.status(200).json({data: "UPDATED SUCESSFULLY!"})
       }
-      catch(err){
-        res.status(404).json({error: err})
+      catch (err) {
+        res.status(404).json({ error: err })
       }
+      break;
   }
 }
