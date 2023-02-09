@@ -2,7 +2,7 @@ import logo from "../../../public/favicon.png";
 import Image from "next/image";
 import { getSession } from "next-auth/react";
 import swal from 'sweetalert';
-
+import { useState } from "react";
 
 export default function cadastro(session) {
     const [idade, setIdade] = useState(new Date())
