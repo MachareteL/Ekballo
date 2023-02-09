@@ -38,7 +38,9 @@ export default async function handler(req, res) {
 
         // create a document that sets the plot of the movie
         const updateDoc = {
-          situacao: situacao
+          $set: {
+            situacao: situacao
+          },
         };
         const result = await db.collection("matriculas").updateOne(filter, updateDoc, options);
         console.log(
