@@ -4,6 +4,8 @@ export default async function handler(req, res) {
   const client = await clientPromise;
   const db = client.db("Ekballo");
   console.log(req.body)
+  const { id, situacao } = req.body
+
 
   switch (req.method) {
 
@@ -29,16 +31,14 @@ export default async function handler(req, res) {
     case "PUT":
       try {
         // create a filter for a movie to update
-        const filter = { _id: req.body._id };
+        const filter = { _id: ObjectId(id) };
 
         // this option instructs the method to create a document if no documents match the filter
         const options = { upsert: false };
 
         // create a document that sets the plot of the movie
         const updateDoc = {
-          $set: {
-            situacao: req.body.situacao
-          },
+          situacao: situacao
         };
         const result = await db.collection("matriculas").updateOne(filter, updateDoc, options);
         console.log(
