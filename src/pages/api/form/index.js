@@ -31,18 +31,11 @@ export default async function handler(req, res) {
       break;
     case "PUT":
       try {
-        // create a filter for a movie to update
-        const filter = { _id: id };
 
         // this option instructs the method to create a document if no documents match the filter
         const options = { upsert: true };
 
-        // create a document that sets the plot of the movie
-        const updateDoc = {
-          $set: {
-            situacao: situacao
-          },
-        };
+        
         const result = await db.collection("matriculas").updateOne({_id: ObjectId(id)}, { $set: {situacao: situacao}}, options);
 
         res.status(200).json({data: "UPDATED SUCESSFULLY!"+result})

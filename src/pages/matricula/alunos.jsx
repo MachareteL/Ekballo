@@ -57,7 +57,7 @@ export default function Table({ cadastros }) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        _id: aluno._id,
+        id: aluno._id,
         situacao: event.target.value   
       })
     })
