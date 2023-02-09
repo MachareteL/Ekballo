@@ -54,7 +54,7 @@ export default function Table({ cadastros }) {
     const data = {
         situacao: event.target.estado.value,
     }
-    console.log(data.situacao)
+    console.log(data)
 
   }
 
