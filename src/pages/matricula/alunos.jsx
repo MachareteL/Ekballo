@@ -48,7 +48,7 @@ export default function Table({ cadastros }) {
   }
 
 
-  const handleSelect = async (event, id) => {
+  const handleSelect = async (event, aluno) => {
     console.log("O evento 2 é: " + event.target.value)
 
     const batida = await fetch(`/api/form`, {
@@ -57,11 +57,13 @@ export default function Table({ cadastros }) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        _id: id
+        _id: aluno._id,
+        situacao: event.target.value   
       })
     })
     const resultado = await batida.json() 
     console.log(resultado)
+    route.reload()
   }
 
 
@@ -77,14 +79,14 @@ export default function Table({ cadastros }) {
       title: '<b>Editar Matricula</b>',
       html: `<div>
       <ul>
-        <li>Nome: ${res.nome}</li>
-        <li>Documento Aluno: ${res.documentoAluno}</li>
-        <li>Endereço: ${res.endereco}</li>
-        <li>Nascimento: ${res.idade}</li>
-        ${res.responsavel ? "<li>Responsável: " + res.responsavel + "</li>" : ""}
-        ${res.documentoPai ? "<li>Documento Responsável: " + res.documentoPai + "</li>" : ""}
-        <li>Curso: ${res.curso}</li>
-        <li>Situação: ${res.situacao}</li>
+        <li><strong>Nome:</strong> ${res.nome}</li>
+        <li><strong>Documento</strong> Aluno: ${res.documentoAluno}</li>
+        <li><strong>Endereço:</strong> ${res.endereco}</li>
+        <li><strong>Nascimento:</strong> ${res.idade}</li>
+        ${res.responsavel ? "<li><strong>Responsável: </strong>" + res.responsavel + "</li>" : ""}
+        ${res.documentoPai ? "<li><strong>Documento Responsável: </strong>" + res.documentoPai + "</li>" : ""}
+        <li><strong>Curso:</strong> ${res.curso}</li>
+        <li><strong>Situação:</strong> ${res.situacao}</li>
       </ul>
       </div>`,
       confirmButtonText: "Confirmar"
@@ -254,7 +256,7 @@ export default function Table({ cadastros }) {
                       (aluno.situacao == 'pendente') ? 'text-yellow-500' : 'text-gray-800', 'uppercase px-6 py-4 text-sm whitespace-nowrap'
 
                     )}>
-                      <select key={aluno._id} name="estado" id="estado" onChange={(e) => handleSelect(e, aluno._id)}>
+                      <select key={aluno._id} name="estado" id="estado" onChange={(e) => handleSelect(e, aluno)}>
                         <option value="pendente" selected >Pendente</option>
                         <option value="matriculado">Matriculado</option>
                         <option value="recusado">Recusado</option>

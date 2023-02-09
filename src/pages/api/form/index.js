@@ -27,6 +27,12 @@ export default async function handler(req, res) {
       }
       break;
     case "PUT":
-      res.status(200).json({data: "Put method done sucessfully!"})
+      try{
+        const att = await db.collection("matriculas").updateOne({ _id: req.body._id, situcao: req.body.situacao})
+        res.status(200).json({data: "Put method done sucessfully! Document updated!"})
+      }
+      catch(err){
+        res.status(404).json({error: err})
+      }
   }
 }
