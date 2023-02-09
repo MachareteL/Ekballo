@@ -56,6 +56,8 @@ export default function Table({ cadastros }) {
 
     // }
     console.log(event)
+    console.log(event.target.value)
+
     console.log(data)
     console.log(event.target.estado.value)
     event.preventDefault()
@@ -257,7 +259,7 @@ export default function Table({ cadastros }) {
                       (aluno.situacao == 'pendente') ? 'text-yellow-500' : 'text-gray-800', 'uppercase px-6 py-4 text-sm whitespace-nowrap'
 
                     )}>
-                      <select name="estado" id="estado" onChange={()=>handleSelect(e)}>
+                      <select key={aluno._id} name="estado" id="estado" onChange={(e)=>handleSelect(e)}>
                         <option value="pendente" selected >Pendente</option>
                         <option value="matriculado">Matriculado</option>
                         <option value="recusado">Recusado</option>
