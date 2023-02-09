@@ -46,8 +46,17 @@ export default function Table({ cadastros }) {
     retorno.ok ? swal(result.resultado, { icon: "success" }).then((value) => { route.reload() }) : swal(result.resultado, { icon: "error" }).then((value) => { route.reload() });
 
   }
+
+  
   const handleSelect = async (event) => {
     // Stop the form from submitting and refreshing the page.
+
+    // const data = {
+    //   situacao: event.target.estado.value,
+
+    // }
+    console.log(event)
+    console.log(data)
     console.log(event.target.estado.value)
     event.preventDefault()
 
@@ -248,7 +257,7 @@ export default function Table({ cadastros }) {
                       (aluno.situacao == 'pendente') ? 'text-yellow-500' : 'text-gray-800', 'uppercase px-6 py-4 text-sm whitespace-nowrap'
 
                     )}>
-                      <select name="estado" id="estado" onChange={handleSelect}>
+                      <select name="estado" id="estado" onChange={()=>handleSelect(e)}>
                         <option value="pendente" selected >Pendente</option>
                         <option value="matriculado">Matriculado</option>
                         <option value="recusado">Recusado</option>
