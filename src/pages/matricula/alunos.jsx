@@ -55,11 +55,9 @@ export default function Table({ cadastros }) {
     //   situacao: event.target.estado.value,
 
     // }
-    console.log(event)
-    console.log(event.target.value)
-
-    console.log(data)
-    console.log(event.target.estado.value)
+    console.log(`O evento é ${event}`)
+    console.log("O evento 2 é: " + event.target.value)
+    console.log("Evento estado target value é: "+ event.target.estado.value)
     event.preventDefault()
 
     // Get data from the form.
@@ -68,7 +66,7 @@ export default function Table({ cadastros }) {
 
 
 
-  async function handleEdit(id, event) {
+  async function handleEdit(id) {
     const retorno = await fetch(`/api/form/${id}`, {
       method: 'GET'
     })
