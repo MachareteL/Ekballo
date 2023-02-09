@@ -48,25 +48,22 @@ export default function Table({ cadastros }) {
   }
   const handleSelect = async (event) => {
     // Stop the form from submitting and refreshing the page.
+    console.log(event.target.estado.value)
     event.preventDefault()
 
     // Get data from the form.
-    const data = {
-        situacao: event.target.estado.value,
-    }
-    console.log(data)
 
   }
 
 
 
-  async function handleEdit(id) {
+  async function handleEdit(id, event) {
     const retorno = await fetch(`/api/form/${id}`, {
       method: 'GET'
     })
     const res = (await retorno.json()).resultado
     console.log(res)
-
+    console.log(event.target.estado.value)
 
     Swal.fire({
       title: '<b>Editar Matricula</b>',

@@ -54,14 +54,14 @@ export default function cadastro(session) {
         // If server returns the name submitted, that means the form works.
         const result = await response.json()
         console.log(result)
-        // event.target.nome.value = ""
-        // event.target.telefone.value = ""
-        // event.target.endereco.value = ""
-        // event.target.idade.value = ""
-        // event.target.curso.value = ""
-        // event.target.responsavel.value = ""
-        // event.target.documentoPai.value,
-        // event.target.documentoAluno.value,
+        event.target.nome.value = ""
+        event.target.telefone.value = ""
+        event.target.endereco.value = ""
+        event.target.idade.value = ""
+        event.target.curso.value = ""
+        event.target.responsavel.value = ""
+        event.target.documentoPai.value = "",
+        event.target.documentoAluno.value = "",
         response.ok? swal(result.result) : swal(result.error)
     }
 
