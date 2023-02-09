@@ -43,10 +43,8 @@ export default async function handler(req, res) {
           },
         };
         const result = await db.collection("matriculas").updateOne({_id: id}, { $set: {situacao: situacao}}, options);
-        console.log(
-          `${result.matchedCount} document(s) matched the filter, updated ${result.modifiedCount} document(s)`,
-        );
-        res.status(200).json({data: "UPDATED SUCESSFULLY!"})
+
+        res.status(200).json({data: "UPDATED SUCESSFULLY!"+result})
       }
       catch (err) {
         res.status(404).json({ error: err })
