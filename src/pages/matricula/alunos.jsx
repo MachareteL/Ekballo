@@ -55,9 +55,7 @@ export default function Table({ cadastros }) {
     //   situacao: event.target.estado.value,
 
     // }
-    console.log(`O evento é ${event}`)
     console.log("O evento 2 é: " + event.target.value)
-    console.log("Evento estado target value é: "+ event.target.estado.value)
     event.preventDefault()
 
     // Get data from the form.
@@ -252,7 +250,7 @@ export default function Table({ cadastros }) {
                     </td>
                     <td className={classNames(
                       (aluno.situacao == 'pendente') ? 'text-yellow-500' : 'text-gray-800', 'uppercase px-6 py-4 text-sm whitespace-nowrap'
-
+                      
                     )}>
                       <select key={aluno._id} name="estado" id="estado" onChange={(e)=>handleSelect(e)}>
                         <option value="pendente" selected >Pendente</option>

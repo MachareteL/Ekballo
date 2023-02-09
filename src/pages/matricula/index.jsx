@@ -5,9 +5,14 @@ import swal from 'sweetalert';
 
 
 export default function cadastro(session) {
-    
+    const [idade, setIdade] = useState(new Date())
+    const agora = Date.now()
+    const diferenca = (agora - idade)
+    const anos = diferenca / (1000 * 3600 * 24) / 365
+
     console.log(session)
     const dia = new Date().toLocaleString()
+
     const handleSubmit = async (event) => {
         // Stop the form from submitting and refreshing the page.
         event.preventDefault()
@@ -23,7 +28,6 @@ export default function cadastro(session) {
             responsavel: event.target.responsavel.value,
             documentoPai: event.target.documentoPai.value,
             documentoAluno: event.target.documentoAluno.value,
-  
             situacao: 'pendente',
             data: dia
         }
@@ -86,15 +90,15 @@ export default function cadastro(session) {
                     </div>
                     <div className="col-span-1 grid sm:flex">
                         <label htmlFor="idade" className="text-white mx-4">Data de Nascimento: </label>
-                        <input required type="date" name="idade" id="idade" className="h-8 ml-4" />
+                        <input required type="date" name="idade" id="idade" className="h-8 ml-4" onChange={(e) => setIdade(new Date(e.target.value))}/>
                     </div>
 
                     
                     <div className="col-span-1">
                         <label htmlFor="curso" className="text-white mx-4">Curso: </label>
-                        <select name="curso" id="curso" className="bg-slate-900 text-white p-1 rounded">
+                        <select required name="curso" id="curso" className="bg-slate-900 text-white p-1 rounded">
                             <option value="ingles">Inglês</option>
-                            <option value="reforo">Reforço</option>
+                            <option value="reforco">Reforço</option>
                             <option value="violao">Violão</option>
                             <option value="luta">Muay Thai</option>
                             <option value="bateria">Bateria</option>
@@ -112,15 +116,19 @@ export default function cadastro(session) {
                     </div>
 
 
-                    <div className="flex col-span-2 ">
-                        <label htmlFor="responsavel" className="text-white mx-4">Responsável: </label>
-                        <input type="text" name="responsavel" id="responsavel" placeholder="* Nome do Pai ou Mâe" className="caret-white text-white bg-slate-900 rounded p-2 h-7 w-full mr-4" />
-                    </div>
+                    {anos <= 18 ?
+                        <>
+                            <div className="flex col-span-2 ">
+                                <label htmlFor="responsavel" className="text-white mx-4">Responsável: </label>
+                                <input type="text" name="responsavel" id="responsavel" placeholder="* Nome do Pai ou Mâe" className="caret-white text-white bg-slate-900 rounded p-2 h-7 w-full mr-4" />
+                            </div>
 
-                    <div className="flex col-span-2">
-                        <label htmlFor="documentoPai" className="text-white mx-4">Documento do Responsável:</label>
-                        <input type="text" name="documentoPai" id="documentoPai" placeholder="CPF ou RG" className="caret-white text-white bg-slate-900 p-2 h-7 w-full mr-4 rounded"/>
-                    </div>
+                            <div className="flex col-span-2">
+                                <label htmlFor="documentoPai" className="text-white mx-4">Documento do Responsável:</label>
+                                <input type="text" name="documentoPai" id="documentoPai" placeholder="CPF ou RG" className="caret-white text-white bg-slate-900 p-2 h-7 w-full mr-4 rounded" />
+                            </div>
+                        </>
+                        : <></>}
 
                     <div className="flex col-span-2 items-baseline justify-center">
                         <input required type="checkbox" name="termos" id="termos" />
