@@ -63,6 +63,7 @@ export default function Table({ cadastros }) {
     })
     const resultado = await batida.json() 
     console.log(resultado)
+    swal({icon: "Sucess", text:`O Estado da Matricula foi alterado para ${event.target.value}`})
     route.reload()
   }
 
@@ -254,10 +255,11 @@ export default function Table({ cadastros }) {
                     </td>
                     <td className={classNames(
                       (aluno.situacao == 'pendente') ? 'text-yellow-500' : 'text-gray-800', 'uppercase px-6 py-4 text-sm whitespace-nowrap'
-
+                      (aluno.situacao == 'matriculado') ? 'text-green-500' : 'text-gray-800', 'uppercase px-6 py-4 text-sm whitespace-nowrap'
+                      (aluno.situacao == 'recusado') ? 'text-red-500' : 'text-gray-800', 'uppercase px-6 py-4 text-sm whitespace-nowrap'
                     )}>
-                      <select key={aluno._id} name="estado" id="estado" onChange={(e) => handleSelect(e, aluno)} value={aluno.situacao}>
-                        <option value="pendente" >Pendente</option>
+                      <select key={aluno._id} name="estado" id="estado" onChange={(e) => handleSelect(e, aluno)} value={aluno.situacao} className="bg-transparent font-semibold">
+                        <option value="pendente">Pendente</option>
                         <option value="matriculado">Matriculado</option>
                         <option value="recusado">Recusado</option>
                       </select>
