@@ -47,19 +47,19 @@ export default function Table({ cadastros }) {
 
   }
 
-  
-  const handleSelect = async (event) => {
-    // Stop the form from submitting and refreshing the page.
 
-    // const data = {
-    //   situacao: event.target.estado.value,
-
-    // }
+  const handleSelect = async (event, id) => {
     console.log("O evento 2 é: " + event.target.value)
-    event.preventDefault()
 
-    // Get data from the form.
-
+    const batida = await fetch(`/api/form`, {
+      method: "PUT",
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        _id: id
+      })
+    })
   }
 
 
@@ -250,9 +250,9 @@ export default function Table({ cadastros }) {
                     </td>
                     <td className={classNames(
                       (aluno.situacao == 'pendente') ? 'text-yellow-500' : 'text-gray-800', 'uppercase px-6 py-4 text-sm whitespace-nowrap'
-                      
+
                     )}>
-                      <select key={aluno._id} name="estado" id="estado" onChange={(e)=>handleSelect(e)}>
+                      <select key={aluno._id} name="estado" id="estado" onChange={(e) => handleSelect(e, aluno._id)}>
                         <option value="pendente" selected >Pendente</option>
                         <option value="matriculado">Matriculado</option>
                         <option value="recusado">Recusado</option>

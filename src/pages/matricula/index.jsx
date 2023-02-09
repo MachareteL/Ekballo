@@ -5,7 +5,7 @@ import swal from 'sweetalert';
 import { useState } from "react";
 
 export default function cadastro(session) {
-    const [idade, setIdade] = useState(new Date())
+    const [idade, setIdade] = useState(new Date("1900-01-01"))
     const agora = Date.now()
     const diferenca = (agora - idade)
     const anos = diferenca / (1000 * 3600 * 24) / 365

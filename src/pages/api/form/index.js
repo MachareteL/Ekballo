@@ -26,5 +26,7 @@ export default async function handler(req, res) {
         res.status(401).json({ error: err });
       }
       break;
+    case "PUT":
+      res.status(200).json({data: "Put method done sucessfully!"})
   }
 }
