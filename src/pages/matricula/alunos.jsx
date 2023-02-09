@@ -60,6 +60,8 @@ export default function Table({ cadastros }) {
         _id: id
       })
     })
+    const resultado = await batida.json() 
+    console.log(resultado)
   }
 
 
