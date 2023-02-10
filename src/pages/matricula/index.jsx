@@ -110,7 +110,7 @@ export default function cadastro(session) {
                             <option value="ingles">Inglês</option>
                             <option value="reforco">Reforço</option>
                             <option value="violao">Violão</option>
-                            <option value="luta">Muay Thai</option>
+                            <option value="muay-thai">Muay Thai</option>
                             <option value="bateria">Bateria</option>
                         </select>
                     </div>

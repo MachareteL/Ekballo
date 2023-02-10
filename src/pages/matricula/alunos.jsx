@@ -5,6 +5,33 @@ import { useState } from "react";
 import swal from "sweetalert"
 import Swal from "sweetalert2";
 
+
+export async function handleEdit(id) {
+  const retorno = await fetch(`/api/form/${id}`, {
+    method: 'GET'
+  })
+  const res = (await retorno.json()).resultado
+
+  Swal.fire({
+    title: '<b>Editar Matricula</b>',
+    html: `<div>
+    <ul>
+      <li><strong>Nome:</strong> ${res.nome}</li>
+      <li><strong>Documento Aluno: </strong>${res.documentoAluno}</li>
+      <li><strong>Endereço:</strong> ${res.endereco}</li>
+      <li><strong>Nascimento:</strong> ${res.idade}</li>
+      ${res.responsavel ? "<li><strong>Responsável: </strong>" + res.responsavel + "</li>" : ""}
+      ${res.documentoPai ? "<li><strong>Documento Responsável: </strong>" + res.documentoPai + "</li>" : ""}
+      <li><strong>Curso:</strong> ${res.curso}</li>
+      <li><strong>Situação:</strong> ${res.situacao}</li>
+    </ul>
+    </div>`,
+    confirmButtonText: "Confirmar"
+  })
+
+}
+
+
 export async function getServerSideProps(context) {
   const session = await getSession(context)
   if (!session) {
@@ -90,30 +117,7 @@ export default function Table({ cadastros }) {
 
 
 
-  async function handleEdit(id) {
-    const retorno = await fetch(`/api/form/${id}`, {
-      method: 'GET'
-    })
-    const res = (await retorno.json()).resultado
-
-    Swal.fire({
-      title: '<b>Editar Matricula</b>',
-      html: `<div>
-      <ul>
-        <li><strong>Nome:</strong> ${res.nome}</li>
-        <li><strong>Documento Aluno: </strong>${res.documentoAluno}</li>
-        <li><strong>Endereço:</strong> ${res.endereco}</li>
-        <li><strong>Nascimento:</strong> ${res.idade}</li>
-        ${res.responsavel ? "<li><strong>Responsável: </strong>" + res.responsavel + "</li>" : ""}
-        ${res.documentoPai ? "<li><strong>Documento Responsável: </strong>" + res.documentoPai + "</li>" : ""}
-        <li><strong>Curso:</strong> ${res.curso}</li>
-        <li><strong>Situação:</strong> ${res.situacao}</li>
-      </ul>
-      </div>`,
-      confirmButtonText: "Confirmar"
-    })
-
-  }
+  
 
   function filtro() {
     // Declare variables

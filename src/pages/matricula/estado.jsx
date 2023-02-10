@@ -1,9 +1,12 @@
 import { getSession } from "next-auth/react";
 import bateria from '../../../public/imagens/bateria.jpg'
 import ingles from '../../../public/imagens/ingles.png'
-import reforco from '../../../public/imagens/bateria.jpg'
-import luta from '../../../public/imagens/bateria.jpg'
+import reforco from '../../../public/imagens/reforco.jpg'
+import luta from '../../../public/imagens/fight.jpeg'
+import violao from '../../../public/imagens/violao.jpg'
 import Image from "next/image";
+import { handleEdit } from '../matricula/alunos'
+
 // TODO GET SERVER SIDE PROPS THROUGH AN API REQUEST TO THE DB OVER A NEW API FILE /API/REQUEST
 
 
@@ -12,18 +15,22 @@ export default function estado(et){
     console.log(matriculas)
     return(
         <>
-        <h1 className="text-xl font-bold">Suas Matriculas</h1>
-        <div class="flex flex-col sm:flex-row sm:justify-center">
+        <h1 className="text-center text-4xl font-bold p-12">Suas matrículas</h1>
+        <div class="grid sm:grid-cols-3  sm:flex-row sm:justify-center">
             {matriculas.map((matricula)=>(
-                <div key={matricula._id} class="relative flex flex-col mx-4 my-8 md:flex-row md:max-w-xl rounded-lg bg-white shadow-lg">
-                  <Image class="w-full h-60 md:h-auto object-cover md:w-48 rounded-t-lg md:rounded-none md:rounded-l-lg" src={(matricula.curso == 'bateria') ? bateria : (matricula.curso) == 'ingles' ? ingles : (matricula.curso) == 'reforco' ? reforco : luta} alt="teste" />
-                  <div class="p-6 flex flex-col justify-start">
-                    <div className="backdrop-blur-sm absolute top-0 left-0 w-full h-60 justify-center items-center flex">
+                <div key={matricula._id} class="relative flex flex-col mx-4 my-8 md:flex-row md:max-w-xl rounded-lg bg-white shadow-xl">
+                  <Image class="w-full h-60 md:h-auto object-cover md:w-60 rounded-t-lg md:rounded-none md:rounded-l-lg" src={(matricula.curso == 'bateria') ? bateria : (matricula.curso) == 'ingles' ? ingles : (matricula.curso) == 'reforco' ? reforco : (matricula.curso) == 'violao' ? violao : luta} alt="teste" />
+                    <div className="backdrop-blur-sm absolute top-0 left-0 w-full h-60 justify-center items-center flex sm:hidden">
                         <h5 class="text-white text-4xl font-bold">{(matricula.curso).toUpperCase()}</h5>
                     </div>
+                  <div class="p-6 flex flex-col justify-start">
+                    <h1 className="font-bold">
+                        {matricula.curso}
+                    </h1>
                     <p class="text-gray-700 text-base mb-4">
                       Você está matriculado no curso de {matricula.curso}
                     </p>
+                    <button onClick={() => handleEdit(matricula._id)} className="self-end bg-slate-700 text-stone-100 px-2 py-1 rounded-lg">Detalhes</button>
                     <p class="text-gray-600 text-xs">Last updated 3 mins ago</p>
                   </div>
                 </div>
