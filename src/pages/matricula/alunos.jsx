@@ -39,14 +39,36 @@ export default function Table({ cadastros }) {
   const [nome, setNome] = useState()
   const [curso, setCurso] = useState()
   const [registro, setRegistro] = useState()
+  
+  
   async function deleteAluno(id) {
 
-
-    const retorno = await fetch(`/api/form/${id}`, {
-      method: 'DELETE'
+    swal({
+      title: "Are you sure?",
+      text: "Once deleted, you will not be able to recover this imaginary file!",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
     })
-    const result = await retorno.json()
-    retorno.ok ? swal(result.resultado, { icon: "success" }).then((value) => { route.reload() }) : swal(result.resultado, { icon: "error" }).then((value) => { route.reload() });
+    .then((willDelete) => {
+      if (willDelete) {
+        return fetch(`/api/form/${id}`, {
+          method: 'DELETE'
+        })
+        .then(()=>swal("A Matricula foi deletada com Sucesso!", {
+          icon: "success",
+        }))
+        
+      } else {
+        swal("A Matricula NÃO foi deletada!", {icon: 'error'});
+      }
+    });
+
+    // const retorno = await fetch(`/api/form/${id}`, {
+    //   method: 'DELETE'
+    // })
+    // const result = await retorno.json()
+    // retorno.ok ? swal(result.resultado, { icon: "success" }).then((value) => { route.reload() }) : swal(result.resultado, { icon: "error" }).then((value) => { route.reload() });
 
   }
 
@@ -100,7 +122,7 @@ export default function Table({ cadastros }) {
 
   function filtro() {
     // Declare variables
-    var input, filter, table, tr, td, i, txtValue;
+    let input, filter, table, tr, td, i, txtValue;
     input = document.getElementById("inputFiltro");
     filter = input.value.toUpperCase();
     table = document.getElementById("tabelaAlunos");
@@ -128,8 +150,8 @@ export default function Table({ cadastros }) {
     no switching has been done: */
     while (switching) {
       // Start by saying: no switching is done:
-      switching = false;
       rows = table.rows;
+      console.log(rows)
       /* Loop through all table rows (except the
       first, which contains table headers): */
       for (i = 1; i < (rows.length - 1); i++) {
@@ -137,8 +159,8 @@ export default function Table({ cadastros }) {
         shouldSwitch = false;
         /* Get the two elements you want to compare,
         one from current row and one from the next: */
-        x = rows[i].getElementsByTagName("TD")[0];
-        y = rows[i + 1].getElementsByTagName("TD")[0];
+        x = rows[i].getElementsByTagName("td")[0];
+        y = rows[i + 1].getElementsByTagName("td")[0];
         // Check if the two rows should switch place:
         if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
           // If so, mark as a switch and break the loop:
@@ -152,6 +174,8 @@ export default function Table({ cadastros }) {
         rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
         switching = true;
       }
+      switching = false
+      break
     }
   }
 
@@ -221,8 +245,7 @@ export default function Table({ cadastros }) {
                     className="px-6 py-3 text-xs font-bold text-left text-gray-500 uppercase "
                   >
                     <span className="inline-flex items-center">
-                      <button onClick={organizar}>Nome</button> 
-                      {}
+                      <button onClick={()=>organizar()}>Nome</button> 
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="w-4 h-4"
