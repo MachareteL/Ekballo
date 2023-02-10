@@ -117,7 +117,7 @@ export default function cadastro(session) {
                     
                     <div className="flex col-span-2">
                         <label htmlFor="documentoAluno" className="text-white mx-4">Documento do aluno:</label>
-                        <input required type="number" name="documentoAluno" id="documentoAluno" placeholder="CPF ou RG" className="caret-white text-white bg-slate-900 p-2 h-7 w-full mr-4 rounded"/>
+                        <input required type="text" name="documentoAluno" id="documentoAluno" placeholder="CPF ou RG" className="caret-white text-white bg-slate-900 p-2 h-7 w-full mr-4 rounded"/>
                     </div>
 
                     <div className="flex col-span-2">
@@ -135,7 +135,7 @@ export default function cadastro(session) {
 
                             <div className="flex col-span-2">
                                 <label htmlFor="documentoPai" className="text-white mx-4">Documento do Responsável:</label>
-                                <input required type="number" name="documentoPai" id="documentoPai" placeholder="CPF ou RG" className="caret-white text-white bg-slate-900 p-2 h-7 w-full mr-4 rounded" />
+                                <input required type="text" name="documentoPai" id="documentoPai" placeholder="CPF ou RG" className="caret-white text-white bg-slate-900 p-2 h-7 w-full mr-4 rounded" />
                             </div>
                         </>
                         : <></>}
@@ -155,8 +155,6 @@ export default function cadastro(session) {
 
 export async function getServerSideProps(context){
     const session = await getSession(context)
-    // console.log(session)
-
     if (!session){
         return{
             redirect:{

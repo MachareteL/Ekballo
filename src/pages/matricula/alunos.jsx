@@ -7,8 +7,6 @@ import Swal from "sweetalert2";
 
 export async function getServerSideProps(context) {
   const session = await getSession(context)
-  console.log(session)
-
   if (!session) {
     return {
       redirect: {
@@ -17,7 +15,6 @@ export async function getServerSideProps(context) {
       },
     }
   }
-
   const retorno = await fetch('https://ekballo.vercel.app/api/form')
   const data = await retorno.json()
   const cadastros = data.data
@@ -87,7 +84,6 @@ export default function Table({ cadastros }) {
       })
     })
     const resultado = await batida.json() 
-    console.log(resultado)
     swal({icon: "success", text:`O Estado da Matricula foi alterado para ${newState}`})
     .then(()=>route.reload())
   }
@@ -99,7 +95,6 @@ export default function Table({ cadastros }) {
       method: 'GET'
     })
     const res = (await retorno.json()).resultado
-    console.log(res)
 
     Swal.fire({
       title: '<b>Editar Matricula</b>',
@@ -151,7 +146,6 @@ export default function Table({ cadastros }) {
     while (switching) {
       // Start by saying: no switching is done:
       rows = table.rows;
-      console.log(rows)
       /* Loop through all table rows (except the
       first, which contains table headers): */
       for (i = 1; i < (rows.length - 1); i++) {
