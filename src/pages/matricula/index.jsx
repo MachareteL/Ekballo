@@ -92,11 +92,11 @@ export default function cadastro(session) {
                     <Image priority src={logo} alt="Logo" className="justify-self-center col-span-2" />
                     <div className="flex col-span-2">
                         <label htmlFor="nome" className="text-white mx-4">Nome: </label>
-                        <input required type="text" name="nome" id="nome" placeholder="* Nome Completo" className="outline-none focus:border focus:border-b-blue-500 origin-bottom caret-white text-white bg-slate-900 p-2 h-7 w-full mr-4 rounded" />
+                        <input required type="text" name="nome" id="nome" placeholder="*Nome Completo" className="outline-none focus:border focus:border-b-blue-500 origin-bottom caret-white text-white bg-slate-900 p-2 h-7 w-full mr-4 rounded" />
                     </div>
                     <div className="flex col-span-2">
                         <label htmlFor="telefone" className="text-white mx-4">Telefone: </label>
-                        <input required type="number" name="telefone" id="telefone" placeholder="* (DDD)9 XXXX-XXXX" className="caret-white text-white bg-slate-900 rounded p-2 h-7 w-full mr-4" />
+                        <input required type="number" name="telefone" id="telefone" placeholder="*019 9XXXX-XXXX" className="caret-white text-white bg-slate-900 rounded p-2 h-7 w-full mr-4" />
                     </div>
                     <div className="col-span-1 grid sm:flex">
                         <label htmlFor="idade" className="text-white mx-4">Data de Nascimento: </label>
@@ -117,7 +117,7 @@ export default function cadastro(session) {
                     
                     <div className="flex col-span-2">
                         <label htmlFor="documentoAluno" className="text-white mx-4">Documento do aluno:</label>
-                        <input required type="text" name="documentoAluno" id="documentoAluno" placeholder="CPF ou RG" className="caret-white text-white bg-slate-900 p-2 h-7 w-full mr-4 rounded"/>
+                        <input required type="number" name="documentoAluno" id="documentoAluno" placeholder="CPF ou RG" className="caret-white text-white bg-slate-900 p-2 h-7 w-full mr-4 rounded"/>
                     </div>
 
                     <div className="flex col-span-2">
@@ -135,7 +135,7 @@ export default function cadastro(session) {
 
                             <div className="flex col-span-2">
                                 <label htmlFor="documentoPai" className="text-white mx-4">Documento do Responsável:</label>
-                                <input required type="text" name="documentoPai" id="documentoPai" placeholder="CPF ou RG" className="caret-white text-white bg-slate-900 p-2 h-7 w-full mr-4 rounded" />
+                                <input required type="number" name="documentoPai" id="documentoPai" placeholder="CPF ou RG" className="caret-white text-white bg-slate-900 p-2 h-7 w-full mr-4 rounded" />
                             </div>
                         </>
                         : <></>}

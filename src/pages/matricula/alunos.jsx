@@ -50,7 +50,7 @@ export default function Table({ cadastros }) {
 
   const handleSelect = async (event, aluno) => {
     console.log("O evento 2 é: " + event.target.value)
-
+    const newState = event.target.value
     const batida = await fetch(`/api/form`, {
       method: "PUT",
       headers: {
@@ -63,7 +63,7 @@ export default function Table({ cadastros }) {
     })
     const resultado = await batida.json() 
     console.log(resultado)
-    swal({icon: "success", text:`O Estado da Matricula foi alterado para ${event.target.value}`})
+    swal({icon: "success", text:`O Estado da Matricula foi alterado para ${newState}`})
     .then(()=>route.reload())
   }
 
@@ -81,7 +81,7 @@ export default function Table({ cadastros }) {
       html: `<div>
       <ul>
         <li><strong>Nome:</strong> ${res.nome}</li>
-        <li><strong>Documento</strong> Aluno: ${res.documentoAluno}</li>
+        <li><strong>Documento Aluno: </strong>${res.documentoAluno}</li>
         <li><strong>Endereço:</strong> ${res.endereco}</li>
         <li><strong>Nascimento:</strong> ${res.idade}</li>
         ${res.responsavel ? "<li><strong>Responsável: </strong>" + res.responsavel + "</li>" : ""}
