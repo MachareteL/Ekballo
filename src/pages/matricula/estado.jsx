@@ -8,10 +8,10 @@ export default function estado(et){
     console.log(matriculas)
     return(
         <>
-        <h1 className="text-xl font-bold">Matriculas</h1>
+        <h1 className="text-xl font-bold">Suas Matriculas</h1>
         <div class="flex flex-col sm:flex-row sm:justify-center">
             {matriculas.map((matricula)=>(
-                <div class="flex flex-col md:flex-row md:max-w-xl rounded-lg bg-white shadow-lg">
+                <div class="flex flex-col mx-2 my-8 md:flex-row md:max-w-xl rounded-lg bg-white shadow-lg">
                   <img class=" w-full h-96 md:h-auto object-cover md:w-48 rounded-t-lg md:rounded-none md:rounded-l-lg" src="https://mdbootstrap.com/wp-content/uploads/2020/06/vertical.jpg" alt="" />
                   <div class="p-6 flex flex-col justify-start">
                     <h5 class="text-gray-900 text-xl font-medium mb-2">{matricula.curso}</h5>
