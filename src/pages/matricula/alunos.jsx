@@ -58,7 +58,7 @@ export default function Table({ cadastros }) {
         .then(()=>swal("A Matricula foi deletada com Sucesso!", {
           icon: "success",
         }))
-        
+        .then(()=>route.reload())
       } else {
         swal("A Matricula NÃO foi deletada!", {icon: 'error'});
       }
