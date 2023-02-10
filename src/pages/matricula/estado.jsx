@@ -4,10 +4,17 @@ import { getSession } from "next-auth/react";
 
 
 export default function estado(et){
-    console.log(et)
+    const matriculas = et.data
+    console.log(matriculas)
     return(
         <>
-            
+        <h1 className="text-xl font-bold">Matriculas</h1>
+            {matriculas.map((matricula)=>(
+                <ul key={matricula._id}>
+                    <li>{matricula.nome}</li>
+                    <li>{matricula.telefone}</li>
+                </ul>
+            ))}
         </>
     );
 }
