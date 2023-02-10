@@ -95,6 +95,28 @@ export default function Table({ cadastros }) {
 
   }
 
+  function filtro() {
+    // Declare variables
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("inputFiltro");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("tabelaAlunos");
+    tr = table.getElementsByTagName("tr");
+  
+    // Loop through all table rows, and hide those who don't match the search query
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[0];
+      if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
+  }
+
   return (
     <div className="flex flex-col">
       <div className="overflow-x-auto">
@@ -104,9 +126,10 @@ export default function Table({ cadastros }) {
               Search
             </label>
             <input
+              onKeyUp={filtro}
               type="text"
-              name="hs-table-search"
-              id="hs-table-search"
+              name="inputFiltro"
+              id="inputFiltro"
               className="block w-full p-3 pl-10 text-sm border-gray-200 rounded-md focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400"
               placeholder="Search..."
             />
@@ -127,7 +150,7 @@ export default function Table({ cadastros }) {
 
         <div className="p-1.5 w-full inline-block align-middle">
           <div className="overflow-hidden border rounded-lg">
-            <table className="min-w-full divide-y divide-gray-200">
+            <table id="tabelaAlunos" className="min-w-full divide-y divide-gray-200">
               <thead className="bg-gray-50">
                 <tr>
 
