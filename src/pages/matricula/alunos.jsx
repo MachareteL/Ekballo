@@ -44,8 +44,8 @@ export default function Table({ cadastros }) {
   async function deleteAluno(id) {
 
     swal({
-      title: "Are you sure?",
-      text: "Once deleted, you will not be able to recover this imaginary file!",
+      title: "Tem Certeza?",
+      text: "Uma vez deletada não será mais possivel recuperar os dados da matrícula!",
       icon: "warning",
       buttons: true,
       dangerMode: true,
