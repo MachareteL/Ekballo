@@ -16,13 +16,13 @@ export default function estado(et) {
     console.log(matriculas)
     if (matriculas.length == 0) {
         return (
-            <>
+            <div className="max-h-screen w-screen">
                 <h1 className="text-2xl font-medium text-center pt-8">
                     Aparentemente você ainda não está matriculado em nenhum dos nossos cursos
                 </h1>
                 <br />
                 <h1 className="text-lg italic text-center"> <Link href="/matricula" className="text-indigo-500">Clique aqui</Link> para se matricular</h1>
-            </>
+            </div>
         )
     }
     console.log(typeof (matriculas.data))
