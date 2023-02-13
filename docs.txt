@@ -2,7 +2,7 @@ https://dev.gerencianet.com.br/docs
 https://tailwind-elements.com/
 https://solito.dev/
 https://www.nativewind.dev/
-
+https://tailwindcomponents.com/components/tables
 
 
 //Verify if there is a query to execute a switch case /api/form to less API files
