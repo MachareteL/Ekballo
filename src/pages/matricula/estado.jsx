@@ -39,14 +39,17 @@ export default function estado(et) {
                             <h5 class="text-white text-4xl font-bold">{(matricula.curso).toUpperCase()}</h5>
                         </div>
                         <div class="p-6 flex flex-col justify-start">
-                            <h1 className="font-bold">
+                            <h1 className="font-bold uppercase">
                                 {matricula.curso}
                             </h1>
                             <p class="text-gray-700 text-base mb-4">
-                                Você está matriculado no curso de {matricula.curso}
+                                Você está matriculado no curso de {(matricula.curso)}
                             </p>
-                            <button onClick={() => handleEdit(matricula._id)} className="self-end bg-slate-700 text-stone-100 px-2 py-1 rounded-lg">Detalhes</button>
-                            <p class="text-gray-600 text-xs italic">Matrícula realizada em: {matricula.data}</p>
+                            <p>
+                                Entraremos em contato em breve para continuação do processo de matrícula.
+                            </p>
+                            <button onClick={() => handleEdit(matricula._id)} className="self-end bg-slate-700 text-stone-100 px-2 py-1 rounded-lg mb-4">Detalhes</button>
+                            <p class="text-gray-600 text-xs italic self-baseline">Matrícula realizada em: {matricula.data}</p>
                         </div>
                     </div>
                 ))}
