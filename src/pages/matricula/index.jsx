@@ -72,11 +72,11 @@ export default function cadastro(session) {
         event.target.nome.value = ""
         event.target.telefone.value = ""
         event.target.endereco.value = ""
-        event.target.idade.value = ""
         anos <= 18 ? event.target.responsavel.value = "" : 
         anos <= 18 ? event.target.documentoPai.value = "" :
+        event.target.idade.value = ""
         event.target.documentoAluno.value = ""
-        response.ok? swal(result.result) : swal(result.error)
+        response.ok? swal(result.result, {icon: 'success'}) : swal(result.error, {icon: 'error'})
     }
 
 
