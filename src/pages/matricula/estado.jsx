@@ -13,6 +13,8 @@ import { handleEdit } from '../matricula/alunos'
 export default function estado(et){
     const matriculas = et.data
     console.log(matriculas)
+    console.log(typeof(matriculas.data))
+    console.log(new Date(matriculas.data))
     return(
         <>
         <h1 className="text-center text-4xl font-bold p-12">Suas matrículas</h1>
@@ -31,7 +33,7 @@ export default function estado(et){
                       Você está matriculado no curso de {matricula.curso}
                     </p>
                     <button onClick={() => handleEdit(matricula._id)} className="self-end bg-slate-700 text-stone-100 px-2 py-1 rounded-lg">Detalhes</button>
-                    <p class="text-gray-600 text-xs">Last updated 3 mins ago</p>
+                    <p class="text-gray-600 text-xs italic">Matrícula realizada em: {matricula.data}</p>
                   </div>
                 </div>
             ))}
