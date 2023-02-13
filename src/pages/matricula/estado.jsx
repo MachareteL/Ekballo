@@ -17,11 +17,11 @@ export default function estado(et) {
     if (matriculas.length == 0) {
         return (
             <>
-                <h1 className="text-2xl font-medium self-center">
+                <h1 className="text-2xl font-medium text-center pt-8">
                     Aparentemente você ainda não está matriculado em nenhum dos nossos cursos
                 </h1>
                 <br />
-                <h1 className="text-lg italic"> <Link href="/matricula">Clique aqui</Link> para se matricular</h1>
+                <h1 className="text-lg italic text-center"> <Link href="/matricula" className="text-indigo-500">Clique aqui</Link> para se matricular</h1>
             </>
         )
     }
