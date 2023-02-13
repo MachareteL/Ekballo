@@ -30,45 +30,44 @@ export default function estado(et) {
     console.log(new Date(matriculas.data))
     return (
         <>
+            
 
 
+                    <div key={matricula._id} class="relative flex flex-col mx-4 my-8 md:flex-row md:max-w-xl rounded-lg bg-white shadow-xl">
+                        <Image class="w-full h-60 md:h-auto object-cover md:w-60 rounded-t-lg md:rounded-none md:rounded-l-lg" src={(matricula.curso == 'bateria') ? bateria : (matricula.curso) == 'ingles' ? ingles : (matricula.curso) == 'reforco' ? reforco : (matricula.curso) == 'violao' ? violao : luta} alt="teste" />
+                        <div className="backdrop-blur-sm absolute top-0 left-0 w-full h-60 justify-center items-center flex sm:hidden">
+                            <h5 class="text-white text-4xl font-bold">{(matricula.curso).toUpperCase()}</h5>
+                        </div>
+                        
 
-
-
-
-
-            <h1 className="text-center text-4xl font-bold p-12">Suas matrículas</h1>
+                        <h1 className="text-center text-4xl font-bold p-12">Suas matrículas</h1>
             <div class="grid sm:grid-cols-3  sm:flex-row sm:justify-center">
                 {matriculas.map((matricula) => (
-
-
-
-
                     <div className="overflow-hidden bg-white shadow sm:rounded-lg">
                         <div className="px-4 py-5 sm:px-6">
-                            <h3 className="text-lg font-medium leading-6 text-gray-900">Applicant Information</h3>
-                            <p className="mt-1 max-w-2xl text-sm text-gray-500">Personal details and application.</p>
+                            <h3 className="text-lg font-medium leading-6 text-gray-900">Informações da Matrícula</h3>
+                            <p className="mt-1 max-w-2xl text-xs text-gray-500">Detalhes do registro do requerimento da matrícula.</p>
                         </div>
                         <div className="border-t border-gray-200">
                             <dl>
                                 <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                                    <dt className="text-sm font-medium text-gray-500">Full name</dt>
-                                    <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">Margot Foster</dd>
+                                    <dt className="text-sm font-medium text-gray-500">Nome completo</dt>
+                                    <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{matricula.nome}</dd>
                                 </div>
                                 <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                                    <dt className="text-sm font-medium text-gray-500">Application for</dt>
-                                    <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">Backend Developer</dd>
+                                    <dt className="text-sm font-medium text-gray-500">Curso</dt>
+                                    <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{matricula.curso}</dd>
                                 </div>
                                 <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                                    <dt className="text-sm font-medium text-gray-500">Email address</dt>
-                                    <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">margotfoster@example.com</dd>
+                                    <dt className="text-sm font-medium text-gray-500">Email</dt>
+                                    <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{matricula.email}</dd>
                                 </div>
                                 <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                                    <dt className="text-sm font-medium text-gray-500">Salary expectation</dt>
-                                    <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">$120,000</dd>
+                                    <dt className="text-sm font-medium text-gray-500">Situação da matricula</dt>
+                                    <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{matricula.situacao}</dd>
                                 </div>
                                 <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                                    <dt className="text-sm font-medium text-gray-500">About</dt>
+                                    <dt className="text-sm font-medium text-gray-500">Sobre o curso</dt>
                                     <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
                                         Fugiat ipsum ipsum deserunt culpa aute sint do nostrud anim incididunt cillum culpa consequat. Excepteur
                                         qui ipsum aliquip consequat sint. Sit id mollit nulla mollit nostrud in ea officia proident. Irure nostrud
@@ -77,8 +76,7 @@ export default function estado(et) {
                                 </div>
                                 <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                     <dt className="text-sm font-medium text-gray-500">Attachments</dt>
-                                    <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
-                                    </dd>
+                                    <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0"></dd>
                                 </div>
                             </dl>
                         </div>
@@ -86,22 +84,9 @@ export default function estado(et) {
 
 
 
-                    // <div key={matricula._id} class="relative flex flex-col mx-4 my-8 md:flex-row md:max-w-xl rounded-lg bg-white shadow-xl">
-                    //     <Image class="w-full h-60 md:h-auto object-cover md:w-60 rounded-t-lg md:rounded-none md:rounded-l-lg" src={(matricula.curso == 'bateria') ? bateria : (matricula.curso) == 'ingles' ? ingles : (matricula.curso) == 'reforco' ? reforco : (matricula.curso) == 'violao' ? violao : luta} alt="teste" />
-                    //     <div className="backdrop-blur-sm absolute top-0 left-0 w-full h-60 justify-center items-center flex sm:hidden">
-                    //         <h5 class="text-white text-4xl font-bold">{(matricula.curso).toUpperCase()}</h5>
-                    //     </div>
-                    //     <div class="p-6 flex flex-col justify-start">
-                    //         <h1 className="font-bold">
-                    //             {matricula.curso}
-                    //         </h1>
-                    //         <p class="text-gray-700 text-base mb-4">
-                    //             Você está matriculado no curso de {matricula.curso}
-                    //         </p>
-                    //         <button onClick={() => handleEdit(matricula._id)} className="self-end bg-slate-700 text-stone-100 px-2 py-1 rounded-lg">Detalhes</button>
-                    //         <p class="text-gray-600 text-xs italic">Matrícula realizada em: {matricula.data}</p>
-                    //     </div>
-                    // </div>
+
+
+                    </div>
                 ))}
             </div>
         </>
