@@ -9,7 +9,6 @@ export default function App({
 }) {
   return (
     <SessionProvider session={session}>
-      <NextNProgress color='#fdf2f0'/>
       <NavBar />
       <Component {...pageProps} />
       <Footer />
