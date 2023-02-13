@@ -287,7 +287,7 @@ export default function Table({ cadastros }) {
                   </th>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-xs font-bold text-start text-gray-500 uppercase bg-slate-200"
+                    className="px-6 py-3 text-xs font-bold text-start text-gray-500 uppercase"
                   >
                     Detalhes
                   </th>
@@ -332,7 +332,7 @@ export default function Table({ cadastros }) {
                       </select>
                     </td>
 
-                    <td className="px-6 py-4 text-sm font-medium text-right bg-slate-200">
+                    <td className="px-6 py-4 text-sm font-medium text-right">
                       <div className="flex justify-between">
                         <button
                           className="text-green-500 hover:text-green-700"

@@ -10,7 +10,6 @@ export default function cadastro(session) {
     const diferenca = (agora - idade)
     const anos = diferenca / (1000 * 3600 * 24) / 365
 
-    console.log(session)
     const dia = new Date().toLocaleString()
 
     const handleSubmit = async (event) => {
