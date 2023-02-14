@@ -216,7 +216,7 @@ export default function Table({ cadastros }) {
 
                   <th
                     scope="col"
-                    className=" flex items-center px-6 py-3 text-xs font-bold text-left text-gray-500 uppercase"
+                    className=" hidden items-center px-6 py-3 text-xs font-bold text-left text-gray-500 uppercase xl:block"
                   >
                     ID
                     <svg
@@ -306,7 +306,7 @@ export default function Table({ cadastros }) {
               <tbody className="divide-y divide-gray-200">
                 {cadastros.map((aluno) => (
                   <tr key={aluno._id}>
-                    <td className="pl-6 py-4 text-sm font-medium text-gray-800 ">
+                    <td className="pl-6 py-4 text-sm font-medium text-gray-800 hidden xl:block">
                       {aluno._id}
                     </td>
                     <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
