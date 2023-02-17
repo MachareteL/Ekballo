@@ -83,8 +83,8 @@ export default function cadastro(session) {
 
 
     return (
-        <div className="h-screen bg-gray-900">
-            <div className="grid bg-gray-900 container m-auto min-h-full">
+        <div className="h-screen">
+            <div className="grid container m-auto min-h-full">
                 <form
                     onSubmit={handleSubmit}
                     className="grid grid-cols-2 w-11/12 bg-slate-800 m-auto self-center h-3/4 rounded-md items-center sm:w-1/2">
