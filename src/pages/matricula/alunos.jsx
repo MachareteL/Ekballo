@@ -210,8 +210,8 @@ export default function Table({ cadastros }) {
 
         <div className="p-1.5 w-full inline-block align-middle">
           <div className="overflow-hidden border rounded-lg">
-            <table id="tabelaAlunos" className="w-full divide-y ">
-              <thead className="bg-gray-50"> 
+            <table id="tabelaAlunos" className="w-full divide-y bg-slate-50">
+              <thead className="bg-gray-100"> 
                 <tr>
 
                   <th
