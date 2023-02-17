@@ -34,14 +34,14 @@ export async function handleEdit(id) {
 
 export async function getServerSideProps(context) {
   const session = await getSession(context)
-  if (!session) {
-    return {
-      redirect: {
-        destination: '/login',
-        permanent: false
-      },
-    }
-  }
+  // if (!session) {
+  //   return {
+  //     redirect: {
+  //       destination: '/login',
+  //       permanent: false
+  //     },
+  //   }
+  // }
   const retorno = await fetch('https://ekballo.vercel.app/api/form')
   const data = await retorno.json()
   const cadastros = data.data
@@ -210,7 +210,7 @@ export default function Table({ cadastros }) {
 
         <div className="p-1.5 w-full inline-block align-middle">
           <div className="overflow-hidden border rounded-lg">
-            <table id="tabelaAlunos" className="w-full divide-y divide-gray-200">
+            <table id="tabelaAlunos" className="w-full divide-y ">
               <thead className="bg-gray-50"> 
                 <tr>
 
@@ -240,7 +240,7 @@ export default function Table({ cadastros }) {
 
                   <th
                     scope="col"
-                    className="px-6 py-3 text-xs font-bold text-left text-gray-500 uppercase "
+                    className="px-6 py-3 text-xs font-bold text-left text-gray-500 uppercase border-red-500"
                   >
                     <span className="inline-flex items-center">
                       <button onClick={()=>organizar()}>Nome</button> 
