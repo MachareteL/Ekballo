@@ -17,15 +17,15 @@ export default function NavBar() {
   console.log(route.pathname)
   const navigation = [
     { name: 'Quem somos', href: '/#somos', current: (route.pathname == "/" ? true : false) },
-    // { name: 'Cursos', href: '/cursos', current: (route.pathname == "/cursos" ? true : false), },
-    // { name: 'Projects', href: '#', current: false },
+    { name: 'Eventos', href: '#', current: false },
+    { name: 'Cursos', href: '#', current: (route.pathname == "/cursos" ? true : false), },
     { name: 'Matricula', href: '/matricula', current: (route.pathname == "/matricula" ? true : false) },
   ]
   return (
-    <Disclosure as="nav" className="bg-gradient-to-b from-gray-800 to-transparent  py-1">
+    <Disclosure as="nav" className="bg-gradient-to-b from-gray-800 to-transparent py-1">
       {({ open }) => (
         <>
-          <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-8xl px-2 sm:px-6 lg:px-8">
             <div className="relative flex h-16 items-center justify-between">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
 
@@ -51,7 +51,7 @@ export default function NavBar() {
                     />
                   <span className='hidden sm:inline text-gray-100 font-bold uppercase text-4xl'>Ekballo</span>
                 </div>
-                <div className='w-full items-center flex justify-center'>
+                <div className='w-full hidden sm:flex-row items-center sm:flex justify-end'>
 
                 <div className="hidden sm:ml-6 sm:flex sm:flex-row items-center">
                   <div className="flex space-x-4">
@@ -60,8 +60,8 @@ export default function NavBar() {
                         key={item.name}
                         href={item.href}
                         className={classNames(
-                          item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                          'px-3 py-2 rounded-md text-sm font-medium h-fit'
+                          item.current ? 'after:absolute after:h-px after:m-0 after:left-0 after:bottom-0 after:bg-gradient-to-r from-sky-400 via-fuchsia-500 to-red-700 after:w-full font-bold text-transparent text-base bg-clip-text bg-gradient-to-r from-sky-400 via-fuchsia-500 to-red-700' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                          'px-3 py-2 rounded-md text-sm h-fit relative'
                         )}
                         aria-current={item.current ? 'page' : undefined}
                         scroll={true}
@@ -97,8 +97,8 @@ export default function NavBar() {
                   as="a"
                   href={item.href}
                   className={classNames(
-                    item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                    'block px-3 py-2 rounded-md text-base font-medium'
+                    item.current ? ' font-extrabold text-transparent text-8xl bg-clip-text bg-gradient-to-r from-sky-400 via-fuchsia-800 to-red-700' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                    'block px-3 py-2 rounded-md text-base font-medium relative'
                   )}
                   scroll={true}
                 >
