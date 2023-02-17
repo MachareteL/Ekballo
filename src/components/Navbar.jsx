@@ -22,7 +22,7 @@ export default function NavBar() {
     { name: 'Matricula', href: '/matricula', current: (route.pathname == "/matricula" ? true : false) },
   ]
   return (
-    <Disclosure as="nav" className="bg-slate-800 shadow-md py-1">
+    <Disclosure as="nav" className="bg-gradient-to-b from-gray-800 to-transparent  py-1">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -41,7 +41,7 @@ export default function NavBar() {
                   )}
                 </Disclosure.Button>
               </div>
-              <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-between">
+              <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div onClick={() => { route.push('/') }} className="flex flex-shrink-0 items-center cursor-pointer">
                   <Image
                     className="block"
@@ -49,8 +49,10 @@ export default function NavBar() {
                     alt="Ekballo"
                     width={75}
                     />
-                  <span className='hidden sm:inline text-gray-100 font-bold uppercase text-5xl'>Ekballo</span>
+                  <span className='hidden sm:inline text-gray-100 font-bold uppercase text-4xl'>Ekballo</span>
                 </div>
+                <div className='w-full items-center flex justify-center'>
+
                 <div className="hidden sm:ml-6 sm:flex sm:flex-row items-center">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
@@ -68,6 +70,7 @@ export default function NavBar() {
                       </Link>
                     ))}
                   </div>
+                </div>
                 </div>
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">

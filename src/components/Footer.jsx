@@ -1,6 +1,6 @@
 function Footer() {
     return (
-        <footer className="static bottom-0 w-full text-center bg-gray-900 text-white">
+        <footer className="static bottom-0 w-full text-center bg-gradient-to-t from-gray-900 to transparent text-white">
             <div className="container m-auto px-6 pt-6">
                 <div className="flex mb-6 justify-center">
                     <li className="list-none flex items-center">

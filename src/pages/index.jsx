@@ -8,14 +8,14 @@ export default function Home() {
     <>
 
       <section className="mb-40">
+{/* Image gallery swithing photos place */}
 
-
-        <div className="px-6 py-12 md:px-12 bg-gray-50 text-gray-800 text-center lg:text-left">
+        <div className="px-6 py-12 md:px-12 text-gray-50 text-center lg:text-left">
           <div className="container mx-auto xl:px-32">
             <div className="grid lg:grid-cols-2 gap-12 lg:flex items-center">
               <div className="mt-12 lg:mt-0">
-                <h1 className="text-5xl md:text-6xl xl:text-7xl font-bold tracking-tight mb-12 font-">Levando o <span className='text-red-500'> Amor </span><br />através do cuidado e do zelo</h1>
-                <a className="inline-block px-7 py-3 mr-2 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out" data-mdb-ripple="true" data-mdb-ripple-color="light" href="matricula" role="button">Quero ser aluno</a>
+                <h1 className="text-5xl md:text-6xl xl:text-7xl font-bold tracking-tight mb-12">Levando o <span className='font-extrabold text-transparent text-8xl bg-clip-text bg-gradient-to-r from-indigo-700 via-fuchsia-700 to-red-700'> Amor </span><br />através do cuidado e do zelo</h1>
+                <a className="inline-block px-7 py-3 mr-2 bg-gradient-to-r from-blue-500 via-fuchsia-700 to-red-700 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out" data-mdb-ripple="true" data-mdb-ripple-color="light" href="matricula" role="button">Quero ser aluno</a>
                 {/* <a className="inline-block px-7 py-3 bg-transparent text-blue-600 font-medium text-sm leading-snug uppercase rounded hover:text-blue-700 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none focus:ring-0 active:bg-gray-200 transition duration-150 ease-in-out" data-mdb-ripple="true" data-mdb-ripple-color="light" href="#!" role="button">Mais informações</a> */}
               </div>
               <div className="mb-12 lg:mb-0">
@@ -50,7 +50,7 @@ export default function Home() {
 
         {/* Primeira seção de conteúdo, usada para apresentar o projeto social. */}
         <section className="mb-32 text-gray-800">
-          <h1 className="text-3xl font-bold mb-12 text-center sm:text-5xl">Projeto Social Ekballo</h1>
+          <h1 className="text-3xl text-neutral-200 font-bold mb-12 text-center sm:text-5xl">Projeto Social Ekballo</h1>
 
           <div className="flex flex-wrap mb-12">
             <div className="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pr-6 mb-6 lg:mb-0">
@@ -64,7 +64,7 @@ export default function Home() {
             </div>
 
             <div className="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pl-6">
-              <h3 className="text-2xl font-bold mb-4">Quem Somos?</h3>
+              <h3 className="text-2xl font-bold mb-4 text-stone-200">Quem Somos?</h3>
               <div className="text-red-600 text-sm mb-4 flex items-center font-medium">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" className="w-4 h-4 mr-2">
                   {/* <!-- Font Awesome Pro 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) --> */}
@@ -73,13 +73,13 @@ export default function Home() {
                 </svg>
                 Movidos pelo amor
               </div>
-              <p className="text-gray-500 mb-6">
+              <p className="text-stone-200 mb-6">
                 O Projeto Ekballo é um Projeto Social que tem como objetivo auxiliar a comunidade local através do ensino do Esporte, Instrumento Musical, Idiomas e Reforço Escolar.
               </p>
-              <p className="text-gray-500">
+              <p className="text-stone-200">
                 Atualmente atendemos mais de 20 crianças e diversos moradores da região. Oferecendo cursos e prática de esportes gratuito.
               </p>
-              <p className="text-gray-500">
+              <p className="text-stone-200">
                 Tudo isso fazemos para a glória de Deus, e no dia a dia as verdades o evangelho são levadas através do que vivemos e falamos.
               </p>
             </div>
@@ -97,7 +97,7 @@ export default function Home() {
             </div>
 
             <div className="grow-0 shrink-0 basis-auto w-full lg:w-6/12 lg:pr-6">
-              <h3 className="text-2xl font-bold mb-4">A luta por dias melhores!</h3>
+              <h3 className="text-2xl font-bold mb-4 text-stone-200">A luta por dias melhores!</h3>
               <div className="text-red-600 text-sm mb-4 flex items-center font-medium">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="w-4 h-4 mr-2">
                   {/* <!-- Font Awesome Pro 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) --> */}
@@ -106,7 +106,7 @@ export default function Home() {
                 </svg>
                 A arte
               </div>
-              <p className="text-gray-500">
+              <p className="text-stone-200">
               Lutamos por mais oportunidades!
               </p>
             </div>
